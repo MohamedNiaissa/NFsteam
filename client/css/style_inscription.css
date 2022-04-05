@@ -1,8 +1,15 @@
 .register{
+    position:relative;
+    top: 80px;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
     text-align: center;
     background-color: antiquewhite;
+    color:black;
+}
+.nav{
+    position:absolute;
+    left:0px;
 }
