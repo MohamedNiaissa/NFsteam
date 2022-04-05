@@ -1,16 +1,8 @@
 
-.html{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-}
-
 .nav{
     z-index: 1;
     height: 64px;
-    position: relative;
+    position: fixed;
     left: 0px;
     top: 0px;
     width: 99vw;
@@ -25,18 +17,20 @@
     background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
 }
-
+#div{
+    border-radius: 8px;
+    border: solid;
+    border-color: dimgray;
+    box-shadow: 0px 5px 16px #0000FF;
+}
 body{
     background: black;
     color:white;
     margin: 0;
-    width: 100%;
-    height: 100%;
     padding: 0;
 }
-
 .head{
-    position: relative;
+    position: fixed;
     top: 65px;
     left: -2px;
     width: 10%;
@@ -63,4 +57,13 @@ body{
     background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+}
+
+.Product{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vw;
+    top: 65px;
 }
