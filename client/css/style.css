@@ -1,0 +1,68 @@
+.nav{
+    z-index: 1;
+    height: 64px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 99vw;
+    padding-top: 8px;
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0000FF; /* fallback color if gradients are not supported*/
+    background: -webkit-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+}
+#div{
+    border-radius: 8px;
+    border: solid;
+    border-color: dimgray;
+    box-shadow: 0px 5px 16px #0000FF;
+}
+body{
+    background: black;
+    color:white;
+}
+.head{
+    position: fixed;
+    top: 65px;
+    left: -2px;
+    width: 10%;
+    height: 95vh;
+}
+.recherche{
+    height: 50%;
+    width: 25%;
+    border-radius: 16px;
+}
+.Compte{
+    display: flex;
+    background: black;
+    align-items: center;
+    height: 50%;
+}
+.LogRegi{
+    color: white;
+    border-color: white;
+    border: solid;
+    border-radius: 4px;
+    background: #0000FF; /* fallback color if gradients are not supported*/
+    background: -webkit-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+}
+.lo{
+    color: white;
+}
+.Product{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vw;
+    top: 65px;
+}
