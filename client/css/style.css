@@ -19,15 +19,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #0000FF; /* fallback color if gradients are not supported*/
-    background: -webkit-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+    background: #5e00ff; /* fallback color if gradients are not supported*/
+    background: -webkit-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: -moz-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: -o-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: repeating-linear-gradient(#5e00ff 50%, black 60%);
 }
+<<<<<<< HEAD
 
+=======
+#div{
+    border-radius: 8px;
+    border: solid;
+    border-color: dimgray;
+    box-shadow: 0px 5px 16px #5e00ff;
+}
+>>>>>>> 3f181ce4f2bc645d4c568f2c24da83269e69831a
 body{
-    background: black;
     color:white;
     margin: 0;
     width: 100%;
@@ -58,9 +66,57 @@ body{
     border-color: white;
     border: solid;
     border-radius: 4px;
+<<<<<<< HEAD
     background: #0000FF; /* fallback color if gradients are not supported*/
     background: -webkit-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
     background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
+=======
+    background: #5e00ff; /* fallback color if gradients are not supported*/
+    background: -webkit-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: -moz-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: -o-repeating-linear-gradient(#5e00ff 50%, black 60%);
+    background: repeating-linear-gradient(#5e00ff 50%, black 60%);
+}
+.lo{
+    color: white;
+}
+.Product{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vw;
+    left: 11vw;
+}
+.categorie{
+    display: flex;
+    justify-content: space-around;
+    position:relative;
+    top: 80px;
+    width: 85vw;
+}
+.Copie{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30vh;
+}
+.imgProduct{
+    height: 30vh;
+    width: 207px;
+    border-radius: 8px;
+}
+.TitreCat{
+    position:relative;
+    top: 80px;
+    font-size: xxx-large;
+}
+.Fond{
+    left:0px;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+>>>>>>> 3f181ce4f2bc645d4c568f2c24da83269e69831a
 }
