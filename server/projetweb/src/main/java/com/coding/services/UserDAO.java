@@ -20,7 +20,7 @@ public class UserDAO {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        try (Connection co = DriverManager.getConnection("jdcb:postgresql://ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:63342/db3f79iailn243", "yvbztdfsefctnd", "bc1f85b7855d747407996a7d8e8ddef1921d24756249b98a1e004c9f88621ab0")) {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sql = "SELECT * FROM users;";
             try (Statement st = co.createStatement()) {
                 try (ResultSet rs = st.executeQuery(sql)) {
