@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class server {
+public main class server {
 
     public String getPassword(id) throws SQLException {
         try (Connection co = DriverManager.getConnection("dbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv\", \"jtnwwirv\", \"A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA", "utilisateur", "motdepasse")) {
@@ -75,14 +75,11 @@ public class server {
     }
     public void setPanier(idPanier,idUser,idProduit) throws SQLException {
         try (Connection co = DriverManager.getConnection("BDD", "utilisateur", "motdepasse")) {
-            String sql = "INSERT INTO Produit (idProduit,Titre,Description,Prix,Quantite,Image) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO Produit (idPanier,idUser,idProduit) VALUES(?,?,?)";
             try (PreparedStatement st = co.prepareStatement(sql)) {
-                st.setInt(1,id);
-                st.setString(2,titre);
-                st.setString(3,description);
-                st.setFloat(4,prix);
-                st.setInt(5,quantite);
-                st.setString(6,image);
+                st.setInt(1,idPanier);
+                st.setString(2,idUser);
+                st.setString(3,idProduit);
                 st.execute();
             }
         }
