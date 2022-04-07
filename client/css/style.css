@@ -2,8 +2,8 @@
     z-index: 1;
     height: 64px;
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 99vw;
     padding-top: 8px;
     padding-left: 8px;
@@ -16,11 +16,11 @@
     background: -o-repeating-linear-gradient(#5e00ff 50%, black 60%);
     background: repeating-linear-gradient(#5e00ff 50%, black 60%);
 }
-#div{
+.div{
     border-radius: 8px;
     border: solid;
     border-color: dimgray;
-    box-shadow: 0px 5px 16px #5e00ff;
+    box-shadow: 0 5px 16px #5e00ff;
 }
 .clickable{
     cursor: pointer;
@@ -99,7 +99,7 @@ a{
 }
 .Fond{
     z-index: -1;
-    left:0px;
+    left:0;
     position:fixed;
     width: 100vw;
     height: 100vh;
