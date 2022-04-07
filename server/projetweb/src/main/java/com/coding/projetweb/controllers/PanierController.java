@@ -1,10 +1,11 @@
 package com.coding.projetweb.controllers;
-
 import java.sql.SQLException;
 import java.util.List;
 
+import com.coding.models.Panier;
 import com.coding.models.Utilisateur;
 import com.coding.services.ArticleDAO;
+import com.coding.services.PanierDAO;
 import com.coding.services.UserDAO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,15 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coding.models.Article;
 
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/articles")
-public class ArticleController {
-    private ArticleDAO dao = new ArticleDAO();
+@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("/panier")
+public class PanierController {
+    private PanierDAO dao = new PanierDAO();
 
 
     @GetMapping("")
-    public List<Article> getArticle() throws SQLException {
-        return dao.getArticle();
+    public List<Panier> getPanier() throws SQLException{
+        return dao.getPanier();
     }
+
 }
