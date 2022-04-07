@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.coding.models.Article;
 import com.coding.models.Utilisateur;
 
 public class UserDAO {
@@ -70,4 +71,6 @@ public class UserDAO {
             }
         }
     }
+
+
 }
