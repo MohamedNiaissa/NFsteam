@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NFsTeam - Inscription</title>
+    <title>NFsTeam - Titre du produit</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/style_inscription.css" />
+    <link rel="stylesheet" href="../css/style_produit.css" />
 
 </head>
 <body>
@@ -25,26 +25,16 @@
             </a>
         </div>
     </div>
-
-
-    <div class="register">
-        <form action="" method="POST">
-            <div class="nomClasse">
-                <label for="nomlabel">Nom</label>
-                <input type="text" name="nom" id="idnom" />
-            </div>
-            <div class="">
-                <label for="maillabel">Mail</label>
-                <input type="text" name="nom" id="idmail" />
-            </div>
-            <div class="">
-                <label for="mdplabel">Mot de Passe</label>
-                <input type="text" name="mdp" id="idmdp" />
-            </div>
-
-        </form>
-
     </div>
-
+    <div class="produit">
+        <div class="inproduit" id="div">
+            <img class="imgProduit" src="../img/SQ_NSwitchDS_Uno.png">
+            <p>4.99€</p>
+            <h2>UNO</h2>
+            <p>Un classique des jeux de cartes désormais disponible en format numérique !</p>
+        </div>
+        <div id="div"><p class="clickable" id="panier">Ajouter au panier</p></div>
+    </div>
+    <script src="../js/produit.js"></script>
 </body>
 </html>
