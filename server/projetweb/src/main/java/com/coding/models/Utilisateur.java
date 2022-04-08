@@ -1,16 +1,22 @@
 package com.coding.models;
 
 public class Utilisateur {
-    private int idUser;
+    // private int idUser;
     private String mail;
     private String mdp;
     private String nom;
-    public int getIdUser() {
-        return idUser;
+    private int monnaie;
+
+    public Utilisateur(String string, String string2, String string3, int i) {
     }
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
+
+    public Utilisateur(){}
+    // public int getIdUser() {
+    //     return idUser;
+    // }
+    // public void setIdUser(int idUser) {
+    //     this.idUser = idUser;
+    // }
     public String getMail() {
         return mail;
     }
@@ -28,6 +34,12 @@ public class Utilisateur {
     }
     public void setNom(String nom) {
         this.nom = nom;
+    }
+    public int getMonnaie(){
+        return monnaie;
+    }
+    public void setMonnaie(int monnaie){
+        this.monnaie = monnaie;
     }
 
 }

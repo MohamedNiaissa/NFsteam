@@ -23,4 +23,13 @@ public class UsersController {
     public List<Utilisateur> getUsers() throws SQLException{
         return dao.getUsers();
     }
+
+    @CrossOrigin
+    @GetMapping("/adduser")
+    public Utilisateur addUser() throws SQLException{
+        Utilisateur user = new Utilisateur("l","d","f",3);
+        dao.addUser(user);
+        return null;
+        
+    }
 }
