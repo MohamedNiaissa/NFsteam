@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coding.models.Article;
 
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
@@ -25,6 +25,7 @@ public class ArticleController {
 
 
     @GetMapping("")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<Article> getArticle() throws SQLException {
         return dao.getArticle();
     }

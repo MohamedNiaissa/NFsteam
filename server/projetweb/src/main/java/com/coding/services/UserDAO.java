@@ -11,9 +11,11 @@ import java.util.List;
 import com.coding.models.Article;
 import com.coding.models.Utilisateur;
 
+
 public class UserDAO {
 
     public List<Utilisateur> getUsers() throws SQLException {
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {

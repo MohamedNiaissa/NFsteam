@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "http://localhost:127.0.0.1")
 @Controller
 public class HomeController {
     

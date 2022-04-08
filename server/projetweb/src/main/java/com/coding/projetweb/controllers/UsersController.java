@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080/users")
+@CrossOrigin
 @RequestMapping("/users")
 public class UsersController {
     private UserDAO dao = new UserDAO();
 
-    @CrossOrigin(origins = "http://localhost:8080/users")
+    @CrossOrigin
     @GetMapping("")
     public List<Utilisateur> getUsers() throws SQLException{
         return dao.getUsers();

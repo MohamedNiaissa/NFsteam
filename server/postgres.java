@@ -2,6 +2,7 @@ import java.sql.*;
 
 public class Postgres {
 
+    
     public static void main(String[] args) {
         try {
             Class.forName("org.postgresql.Driver");
