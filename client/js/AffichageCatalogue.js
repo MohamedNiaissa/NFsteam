@@ -10,10 +10,10 @@ function callAPI(){
         categorie = document.createElement("div");
         categorie.className = "categorie";
         for (let i = liste[0].length-1; i > -1; i--) {
-            categorie.innerHTML += '<div class="Copie" id="div">\n' +
-                '<a href="">'+liste[0][i]['tag']+'</a>'+
+            categorie.innerHTML += '<div class="Copie div">\n' +
+                '<a href="index.html/'+liste[0][i]['tag']+'">'+liste[0][i]['tag']+'</a>'+
                 '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
-                '<p>'+liste[0][i]['nomArt']+'</p>\n' +
+                '<a href="produit.html/'+liste[0][i]['tag']+'">'+liste[0][i]['nomArt']+'</a>\n' +
                 '<p>'+liste[0][i]['description'].slice(0,20)+'</p>\n' +
                 '</div>';
         }
@@ -22,4 +22,4 @@ function callAPI(){
     console.log("inside the .js file")
 }
 
-// document.body.addEventListener('click',callAPI());
+document.body.addEventListener('click',callAPI());
