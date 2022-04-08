@@ -22,4 +22,4 @@ function callAPI(){
     console.log("inside the .js file")
 }
 
-document.body.addEventListener('click',callAPI());
+// document.body.addEventListener('click',callAPI());

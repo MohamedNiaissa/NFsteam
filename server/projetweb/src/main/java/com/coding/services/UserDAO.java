@@ -29,7 +29,6 @@ public class UserDAO {
                     List<Utilisateur> list = new ArrayList<>();
                     while (rs.next()) {
                         Utilisateur u = new Utilisateur();
-                        u.setIdUser(rs.getInt("idUser"));
                         u.setMdp(rs.getString("mdp"));
                         u.setMail(rs.getString("mail"));
                         u.setNom(rs.getString("nom"));
@@ -42,17 +41,17 @@ public class UserDAO {
     }
 
     public Utilisateur getUserById(int id) throws SQLException {
-        try (Connection co = DriverManager.getConnection("jdcb:mysql://localhost:63342/projet-web", "root", "toor")) {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sql = "SELECT * FROM utilisateur where id=?;"; // pas de concateneation, pour eviter injection sql
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setInt(1, id);
                 try (ResultSet rs = st.executeQuery()) {
                     if (rs.next()) {
                         Utilisateur u = new Utilisateur();
-                        u.setIdUser(rs.getInt("idUser"));
                         u.setMdp(rs.getString("mdp"));
                         u.setMail(rs.getString("mail"));
                         u.setNom(rs.getString("nom"));
+                        u.setMonnaie(rs.getInt("monnaie"));
                         return u;
                     }
                     return null;
@@ -61,13 +60,14 @@ public class UserDAO {
         }
     }
 
-    public void add(Utilisateur user) throws SQLException {
-        try (Connection co = DriverManager.getConnection("jdcb:mysql://localhost:63342/projet-web", "root", "toor")) {
-            String sql = "INSERT INTO utilisateur (mail, mdp, nom) VALUES(?, ?, ?);";
+    public void addUser(Utilisateur user) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "INSERT INTO utilisateur (nom, mail, mdp, monnaie ) VALUES(?, ?, ?, ?);";
             try (PreparedStatement st = co.prepareStatement(sql)) {
-                st.setString(1, user.getMail());
-                st.setString(2, user.getMdp());
-                st.setString(4, user.getNom());
+                st.setString(1, user.getNom());
+                st.setString(2, user.getMail());
+                st.setString(3, user.getMdp());
+                st.setInt(4, user.getMonnaie());
                 st.execute();
             }
         }

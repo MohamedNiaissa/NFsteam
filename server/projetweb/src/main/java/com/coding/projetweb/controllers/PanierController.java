@@ -10,6 +10,7 @@ import com.coding.services.UserDAO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,12 @@ public class PanierController {
     @GetMapping("")
     public List<Panier> getPanier() throws SQLException{
         return dao.getPanier();
+    }
+
+    @GetMapping("/{idArt}")
+    public Panier getSpecificPanier(@PathVariable("idArt") int idArt ) throws SQLException{
+        return dao.getSpecificPanier(idArt);
+
     }
 
 }
