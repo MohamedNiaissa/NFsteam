@@ -10,5 +10,5 @@ function callAPI(){
     }
     console.log("inside the .js file")
 }
-
+// console.log(localStorage.getItem("nom"));
 // document.body.addEventListener('click',callAPI());

@@ -59,23 +59,32 @@ btnRegister.addEventListener('click',function(){
 //         xhttp.send();
 //  }
 
-            let url = `http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}/${dataUser["monnaie"]}`
+        let url = `http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}/${dataUser["monnaie"]}`;
 
-            // fetch(url, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'mode' : 'cors',
-            //         'Access-Control-Allow-Origin': "*"
-                
-            // }, body: JSON.stringify(url)}).then((res) => console.log(res) );
+        // localStorage.setItem("nom", dataUser["nom"])
+        // localStorage.setItem("mail", dataUser["mail"])
 
-    var headers = {}
-    
-    fetch(url, {
-        method : "GET",
-        mode: 'cors',
-        headers: headers
-    })
+
+
+        // fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'mode' : 'cors',
+        //         'Access-Control-Allow-Origin': "*"
+            
+        // }, body: JSON.stringify(url)}).then((res) => console.log(res) );
+
+        var headers = {}
+        
+        fetch(url, {
+            method : "GET",
+            mode: 'cors',
+            headers: headers
+        })
  
     }})
+
+    document.body.addEventListener('dblclick',function(){
+        localStorage.clear()
+    })
