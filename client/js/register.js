@@ -77,15 +77,5 @@ btnRegister.addEventListener('click',function(){
         mode: 'cors',
         headers: headers
     })
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(response.error)
-        }
-        return response.json();
-    })
-    .then(data => {
-console.log(data)    })
-    .catch(function(error) {
-        alert(error)
-    });
+ 
     }})
