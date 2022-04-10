@@ -61,7 +61,7 @@ btnRegister.addEventListener('click',function(){
 
         let url = `http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}/${dataUser["monnaie"]}`;
 
-        // localStorage.setItem("nom", dataUser["nom"])
+        localStorage.setItem("nom", dataUser["nom"])
         // localStorage.setItem("mail", dataUser["mail"])
 
 
