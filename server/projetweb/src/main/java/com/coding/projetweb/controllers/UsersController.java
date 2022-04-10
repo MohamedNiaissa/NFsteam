@@ -46,4 +46,10 @@ public class UsersController {
     public  Object removeUser(@PathVariable("nom") String nom) throws SQLException{
         return dao.removeUser(nom);
     }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
+    @GetMapping("/updateusernom/{nom}/{newnom}")
+    public  Object updateName(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
+        return dao.updateName(nom,newnom);
+    }
 }

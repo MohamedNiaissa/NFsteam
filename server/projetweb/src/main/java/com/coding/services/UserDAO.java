@@ -85,4 +85,42 @@ public class UserDAO {
         return nameUser;
     }
 
+
+    public Object updateName(String nom,String nameUser) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET nom = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nameUser);
+                st.setString(2, nom);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
+
+
+    public Object updateMail(String nameUser, String mail) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET mail = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, mail);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
+
+
+    public Object updateMonnaie(String nameUser, int monnaie) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET monnaie = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, monnaie);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
 }

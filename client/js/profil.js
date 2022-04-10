@@ -11,7 +11,6 @@ supp.addEventListener("click",function(){
         mode: 'cors',
         headers: headers
     })
-
-
+    
     localStorage.clear()
 })
