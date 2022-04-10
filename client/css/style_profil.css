@@ -10,7 +10,9 @@ body{
 .modif a{
     margin-left: 20px;
 }
-
+.profilTitre{
+    margin-top: 80px;
+}
 .modifContent{
     display: flex;
     flex-direction: column;
@@ -22,10 +24,19 @@ body{
     align-items: center;
 }
 
-.modifContent > div > a{
+.modifContent > div > a, .suppr{
     text-decoration: none;
     color: black;
     background-color: aqua;
     padding: 10px;
     border-radius: 20px;
+}
+
+.suppr{
+    
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(213, 23, 17);
+    color: antiquewhite;
+
 }
