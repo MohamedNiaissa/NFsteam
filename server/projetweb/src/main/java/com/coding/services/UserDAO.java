@@ -1,4 +1,5 @@
 package com.coding.services;
+import java.io.Console;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -98,6 +99,27 @@ public class UserDAO {
         return nameUser;
     }
 
+
+    public Utilisateur fetchUser(String nom,String mdp) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "SELECT * FROM utilisateur WHERE nom = ? AND mdp = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nom);
+                st.setString(2, mdp);
+                try (ResultSet rs = st.executeQuery()) {
+                    if (rs.next()) {
+                        Utilisateur u = new Utilisateur();
+                        u.setMdp(rs.getString("mdp"));
+                        u.setMail(rs.getString("mail"));
+                        u.setNom(rs.getString("nom"));
+                        u.setMonnaie(rs.getInt("monnaie"));
+                        return u;
+                    }
+                    return null;
+                }
+            }
+        }
+    }
 
     public Object updateMail(String nameUser, String mail) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {

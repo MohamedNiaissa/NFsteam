@@ -41,6 +41,8 @@ public class UsersController {
         
     }
 
+    //-----------------------------------------------------Modif User-----------------------------------------------------
+
     @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("/removeuser/{nom}")
     public  Object removeUser(@PathVariable("nom") String nom) throws SQLException{
@@ -70,5 +72,23 @@ public class UsersController {
     public  Object updateMonnaie(@PathVariable("monnaie") int monnaie, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMonnaie(nom,monnaie);
     }
+
+    //-----------------------------------------------------Modif User-----------------------------------------------------
+    
+
+
+
+
+    //-----------------------------------------------------Login User-----------------------------------------------------
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
+    @GetMapping("/login/{nom}/{mdp}")
+    public  Object fetchUser(@PathVariable("nom") String nom, @PathVariable("mdp") String mdp) throws SQLException{
+        return dao.fetchUser(nom,mdp);
+    }
+    
+
+    //-----------------------------------------------------Login User-----------------------------------------------------
+
 }
 
