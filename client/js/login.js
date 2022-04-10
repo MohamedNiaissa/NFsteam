@@ -17,9 +17,15 @@ btn_login.addEventListener('click',function(){
         // if (!response.ok) {
         //     throw new Error(response.error)
         // }
-        console.log(response.text)
+        console.log(response.json)
         return response.json();
     }).then(data => {
-        console.log(data)
+        try{
+            localStorage.setItem("nom",data[0].nom);
+            localStorage.setItem("mail",data[0].mail);
+            localStorage.setItem("monnaie",data[0].monnaie);
+        }catch(error){
+            console.log("non")
+        }
     })
 })
