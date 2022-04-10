@@ -53,12 +53,18 @@ public class UsersController {
         return dao.updateName(nom,newnom);
     }
 
-
     @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("/updateusermail/{nom}/{mail}")
     public  Object updateMail(@PathVariable("mail") String mail, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMail(nom,mail);
     }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
+    @GetMapping("/updateusermdp/{nom}/{mdp}")
+    public  Object updateMdp(@PathVariable("mdp") String mdp, @PathVariable("nom") String nom) throws SQLException{
+        return dao.updateMdp(nom,mdp);
+    }
+
     @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("/updateusermonnaie/{nom}/{monnaie}")
     public  Object updateMonnaie(@PathVariable("monnaie") int monnaie, @PathVariable("nom") String nom) throws SQLException{

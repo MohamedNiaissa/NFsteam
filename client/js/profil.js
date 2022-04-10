@@ -4,8 +4,12 @@ let nomProfil = localStorage.getItem("nom");
 profilTitre.innerHTML += " " + nomProfil;
 let btn_nommodif = document.querySelector('.btn_nommodif')
 let btn_modifmonnaie = document.querySelector('.btn_modifmonnaie')
+let btn_modifmail = document.querySelector('.btn_mailmodif')
+let btn_modifmdp = document.querySelector('.btn_mdpmodif')
 let newnom = document.querySelector('#idnommodif');
 let newMonnaie = document.querySelector('#idmonnaiemodif');
+let newMail = document.querySelector('#idmailmodif');
+let newMdp = document.querySelector('#idmdpmodif');
 
 
 let headers = {}
@@ -39,6 +43,30 @@ btn_modifmonnaie.addEventListener('click',function(){
     let newM = newMonnaie.value;
 
     let url = `http://localhost:8080/users/updateusermonnaie/${nomProfil}/${newM}`;
+    fetch(url, {
+        method : "GET",
+        mode: 'cors',
+        headers: headers
+    })
+})
+
+
+btn_modifmail.addEventListener('click',function(){
+    let newM = newMail.value;
+
+    let url = `http://localhost:8080/users/updateusermail/${nomProfil}/${newM}`;
+    fetch(url, {
+        method : "GET",
+        mode: 'cors',
+        headers: headers
+    })
+})
+
+
+btn_modifmdp.addEventListener('click',function(){
+    let newM = newMdp.value;
+
+    let url = `http://localhost:8080/users/updateusermdp/${nomProfil}/${newM}`;
     fetch(url, {
         method : "GET",
         mode: 'cors',

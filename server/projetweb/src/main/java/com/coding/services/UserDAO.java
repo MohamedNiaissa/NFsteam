@@ -123,4 +123,17 @@ public class UserDAO {
         }
         return nameUser;
     }
+
+
+    public Object updateMdp(String nameUser, String mdp) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET mdp = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, mdp);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
 }
