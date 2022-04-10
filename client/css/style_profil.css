@@ -1,3 +1,31 @@
 body{
     background-color: rgb(77, 131, 231);
 }
+
+
+.modif{
+    display: flex;
+}
+
+.modif a{
+    margin-left: 20px;
+}
+
+.modifContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modifContent div{
+    margin: 10px;
+    align-items: center;
+}
+
+.modifContent > div > a{
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 20px;
+}

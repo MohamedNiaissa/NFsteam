@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style_profil.css">
+
     <title>Profil</title>
 </head>
 <body>
@@ -24,25 +25,40 @@
 
     <h3>Modification du profil</h3>
 
-    <div class="modif">
-        <div class="nomClasse">
-            <label for="nomlabel">Nom</label>
-            <input type="text" name="nom" id="idnom" />
-        </div>
-        <div class="">
-            <label for="maillabel">Mail</label>
-            <input type="text" name="nom" id="idmail" />
-        </div>
-        <div class="">
-            <label for="mdplabel">Mot de Passe</label>
-            <input type="text" name="mdp" id="idmdp" />
+    <div class="modifContent">
+        <div class="modifNom modif">
+            <div class="nomClasse">
+                <label for="nomlabel">Nom</label>
+                <input type="text" name="nom" id="idnom" class="classnom"/>
+            </div>
+            <a href = "#" class="btn_nommodif">Valider</a>
         </div>
 
-        <div class="">
-            <label for="monnaielabel">Compte</label>
-            <input type="number" name="monnaie" id="idmonnaie" />
+        <div class="modifmail modif">
+            <div class="">
+                <label for="maillabel">Mail</label>
+                <input type="text" name="nom" id="idmail" />
+            </div>
+            <a href = "#" class="btn_mailmodif">Valider</a>
         </div>
-        <a href = "#" class="btn_register">Valider</a>
+
+        <div class="modifmdp modif">
+            <div class="">
+                <label for="mdplabel">Mot de Passe</label>
+                <input type="text" name="mdp" id="idmdp" />
+            </div>
+            <a href = "#" class="btn_mdpmodif">Valider</a>
+        </div>
+
+
+        <div class="modifcompte modif">
+            
+            <div class="">
+                <label for="monnaielabel">Compte</label>
+                <input type="number" name="monnaie" id="idmonnaie" />
+            </div>
+            <a href = "#" class="btn_modifmonnaie">Valider</a>
+        </div>
 </div>
 
     <a href="index.html" class="suppr">Supprimer le compte </a>
