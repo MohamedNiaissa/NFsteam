@@ -52,4 +52,11 @@ public class UsersController {
     public  Object updateName(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
         return dao.updateName(nom,newnom);
     }
+
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
+    @GetMapping("/updateusermail/{nom}/{mail}")
+    public  Object updateMail(@PathVariable("mail") String mail, @PathVariable("nom") String nom) throws SQLException{
+        return dao.updateMail(nom,mail);
+    }
 }
