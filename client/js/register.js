@@ -29,8 +29,6 @@ btnRegister.addEventListener('click',function(){
     dataUser["mdp"] = idmdp.value;
     dataUser["monnaie"] = idmonnaie.value;
 
-    console.log(dataUser)
-
     for(let key in dataUser){
         if(dataUser[key] === ""){
             nonValid()
@@ -39,41 +37,13 @@ btnRegister.addEventListener('click',function(){
         }
     }
     if(verifChamp == true){
-        let httpRequest = new XMLHttpRequest();
 
-        // httpRequest.open('GET',`http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}`);
-        // httpRequest.send();
-        // httpRequest.onload= function(){
-        //     console.log('ok send')
-        // }
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function() {
-//             if (this.readyState == 4 && this.status == 200) {
-//                 document.getElementById("emo").innerHTML = alert(this.responseText);
-//     }
-//  };
-
-//         xhttp.withCredentials = true;
-//         xhttp.open("GET", `http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}/11`, true);
-//         xhttp.setRequestHeader( 'Access-Control-Allow-Origin', 'http://localhost:5500/');
-//         xhttp.send();
-//  }
 
         let url = `http://localhost:8080/users/adduser/${dataUser["nom"]}/${dataUser["mail"]}/${dataUser["mdp"]}/${dataUser["monnaie"]}`;
 
         localStorage.setItem("nom", dataUser["nom"])
-        // localStorage.setItem("mail", dataUser["mail"])
-
-
-
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'mode' : 'cors',
-        //         'Access-Control-Allow-Origin': "*"
-            
-        // }, body: JSON.stringify(url)}).then((res) => console.log(res) );
+        localStorage.setItem("mail", dataUser["mail"])
+        localStorage.setItem("monnaie", dataUser["monnaie"])
 
         var headers = {}
         
