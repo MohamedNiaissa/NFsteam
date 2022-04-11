@@ -17,6 +17,5 @@ document.querySelector(".sudbmitnew").addEventListener('click', function(){
             mode: 'no-cors',
             headers: headers
         })
-
 }
 );
