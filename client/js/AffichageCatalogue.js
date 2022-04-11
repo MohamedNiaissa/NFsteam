@@ -23,7 +23,7 @@ function callAPI(){
                 if (liste[0][i]['tag'] === localStorage.getItem("recherche"))
                 {
                     categorie.innerHTML += '<div class="Copie div">\n' +
-                        '<a href="index.html" id="'+liste[0][i]['tag']+'">'+liste[0][i]['tag']+'</a>'+
+                        '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                         '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
                         '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
                         '<p>'+liste[0][i]['description'].slice(0,50)+'</p>\n' +
@@ -33,12 +33,16 @@ function callAPI(){
         }
         catalogue.innerHTML = '<div class="categorie">' + categorie.innerHTML + '</div>';
         for (let i = liste[0].length-1; i > -1; i--) {
-            document.getElementById(liste[0][i]['nomArt']).addEventListener('click', function () {
-                localStorage.setItem("nomprod", liste[0][i]['nomArt'])
-            })
-            document.getElementById(liste[0][i]['tag']+i).addEventListener('click', function () {
-                localStorage.setItem("recherche", liste[0][i]['tag'])
-            })
+            if (document.getElementById(liste[0][i]['nomArt'])) {
+                document.getElementById(liste[0][i]['nomArt']).addEventListener('click', function () {
+                    localStorage.setItem("nomprod", liste[0][i]['nomArt'])
+                })
+            }
+            if (document.getElementById(liste[0][i]['tag']+i)) {
+                document.getElementById(liste[0][i]['tag']+i).addEventListener('click', function () {
+                    localStorage.setItem("recherche", liste[0][i]['tag'])
+                })
+            }
         }
     }
 }
