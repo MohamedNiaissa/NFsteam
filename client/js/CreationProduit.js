@@ -1,10 +1,22 @@
-function stock(){
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.open('POST','http://localhost:8080/articles/addart/'+document.getElementById('Titre').value+'/'+document.getElementById('Img').value+'/'+document.getElementById('Support').value+'/'+document.getElementById('Description').value+'/'+document.getElementById('Quantiten').value+'/'+document.getElementById('Prix').value+'/'+document.getElementById('Tag').value);
-    httpRequest.send();
-    httpRequest.onload= function(){
-        document.getElementById("sudbmitnew").innerHTML = "Produit ajouté";
-    }
-}
+let titre = document.getElementById('Titre');
+let img = document.getElementById('Img');
+let support = document.getElementById('Support');
+let desc = document.getElementById('Description');
+let quantiten = document.getElementById('Quantiten');
+let prix = document.getElementById('Prix');
+let tag = document.getElementById('Tag');
 
-document.getElementById("sudbmitnew").addEventListener('click',stock());
+
+
+document.querySelector(".sudbmitnew").addEventListener('click', function(){
+    let url =  `http://localhost:8080/articles/addart/${titre.value}/${img.value}/${support.value}/${desc.value}/${quantiten.value}/${prix.value}/${tag.value}`;
+    console.log(titre.value)
+        let headers = {};
+        fetch(url, {
+            method : "GET",
+            mode: 'no-cors',
+            headers: headers
+        })
+
+}
+);

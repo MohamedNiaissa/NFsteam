@@ -3,9 +3,8 @@ package com.coding.projetweb.controllers;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.coding.models.Utilisateur;
 import com.coding.services.ArticleDAO;
-import com.coding.services.UserDAO;
+
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +23,14 @@ import com.coding.models.Article;
 public class ArticleController {
     private ArticleDAO dao = new ArticleDAO();
 
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("")
     public List<Article> getArticle() throws SQLException {
         return dao.getArticle();
     }
-    @GetMapping("/consult/{nom}")
-    public List<Article> getArticleByName(@PathVariable("nom") String nom) throws SQLException {
-        return dao.getArticleByName(nom);
-    }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
     public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
         Article art = new Article();
@@ -43,6 +42,6 @@ public class ArticleController {
         art.setPrixArt(Prix);
         art.setTag(tag);
         dao.addArticle(art);
-        return null;
+        return art;
     }
 }
