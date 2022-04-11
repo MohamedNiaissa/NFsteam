@@ -17,7 +17,7 @@ public class ArticleDAO {
             e.printStackTrace();
         }
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
-            String sqlArt = "SELECT * FROM article;";
+            String sqlArt = "SELECT * FROM article ORDER by idArticle;";
             try (Statement st = co.createStatement()) {
                 try (ResultSet rs = st.executeQuery(sqlArt)) {
                     List<Article> list = new ArrayList<>();
