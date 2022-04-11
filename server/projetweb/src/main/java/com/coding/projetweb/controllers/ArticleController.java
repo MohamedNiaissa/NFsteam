@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coding.models.Article;
 
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
@@ -25,8 +25,20 @@ public class ArticleController {
 
 
     @GetMapping("")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public List<Article> getArticle() throws SQLException {
         return dao.getArticle();
+    }
+    @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
+    public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
+        Article art = new Article();
+        art.setNomArt(nom);
+        art.setImgArt(img);
+        art.setNomConsole(console);
+        art.setDescription(description);
+        art.setQuantArt(quant);
+        art.setPrixArt(Prix);
+        art.setTag(tag);
+        dao.addArticle(art);
+        return null;
     }
 }

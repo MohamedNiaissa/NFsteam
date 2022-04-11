@@ -19,7 +19,6 @@ function callAPI(){
         }
         catalogue.innerHTML = '<div class="categorie">' + categorie.innerHTML + '</div>';
     }
-    console.log("inside the .js file")
 }
 
 document.body.addEventListener('click',callAPI());

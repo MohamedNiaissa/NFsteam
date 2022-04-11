@@ -14,18 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/users")
 public class UsersController {
     private UserDAO dao = new UserDAO();
 
-    @CrossOrigin
     @GetMapping("")
     public List<Utilisateur> getUsers() throws SQLException{
         return dao.getUsers();
     }
 
-    @CrossOrigin
     @GetMapping("/adduser/{nom}/{mail}/{mdp}/{monnaie}")
     public Utilisateur addUser(@PathVariable("nom") String nom,@PathVariable("mail") String mail,@PathVariable("mdp") String mdp,@PathVariable("monnaie") int monnaie) throws SQLException{
         Utilisateur user = new Utilisateur();
