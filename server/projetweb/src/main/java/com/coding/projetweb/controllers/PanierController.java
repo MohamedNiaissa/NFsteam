@@ -25,8 +25,6 @@ import com.coding.models.Article;
 public class PanierController {
     private PanierDAO dao = new PanierDAO();
 
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("")
     public List<Panier> getPanier() throws SQLException{
         return dao.getPanier();
