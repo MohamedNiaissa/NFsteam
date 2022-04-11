@@ -29,6 +29,10 @@ public class ArticleController {
     public List<Article> getArticle() throws SQLException {
         return dao.getArticle();
     }
+    @GetMapping("/consult/{nom}")
+    public List<Article> getArticleByName(@PathVariable("nom") String nom) throws SQLException {
+        return dao.getArticleByName(nom);
+    }
     @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
     public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
         Article art = new Article();

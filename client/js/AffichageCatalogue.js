@@ -12,7 +12,7 @@ function callAPI(){
             categorie.innerHTML += '<div class="Copie div">\n' +
                 '<a href="index.html/'+liste[0][i]['tag']+'">'+liste[0][i]['tag']+'</a>'+
                 '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
-                '<a href="produit.html/'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
+                '<a href="produit.html/consult/'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
                 '<p>'+liste[0][i]['description'].slice(0,20)+'</p>\n' +
                 '</div>';
         }
