@@ -13,3 +13,30 @@
     position:absolute;
     left:0px;
 }
+
+.register :nth-child(n){
+    margin-top: 6px;
+}
+
+.btn_register{
+    color: rgb(163, 133, 94);
+    text-decoration: none;
+    background-color: aliceblue;
+    padding: 12px;
+    border-radius: 20px;
+}
+
+.errormsg{
+    position: absolute;
+    opacity: 1;
+    transition: opacity 2s ease-in;
+    left: 45%;
+    font-size: 20px;
+    text-align: center;
+    top: 50%;
+    color: rgb(196, 36, 36);
+    background-color: aliceblue;
+    border-radius: 20px;
+    z-index: 5;
+    width: 300px;
+}
