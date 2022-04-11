@@ -25,10 +25,13 @@ public class ArticleController {
     private ArticleDAO dao = new ArticleDAO();
 
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("")
     public List<Article> getArticle() throws SQLException {
         return dao.getArticle();
     }
+    
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "http://127.0.0.1:5500")
     @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
     public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
         Article art = new Article();
@@ -40,6 +43,6 @@ public class ArticleController {
         art.setPrixArt(Prix);
         art.setTag(tag);
         dao.addArticle(art);
-        return null;
+        return art;
     }
 }
