@@ -1,4 +1,5 @@
 package com.coding.services;
+import java.io.Console;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -39,7 +40,31 @@ public class UserDAO {
             }
         }
     }
+    
 
+        public List<Utilisateur> fetchUser(String nom,String mdp) throws SQLException {
+            try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+                String sql = "SELECT * FROM utilisateur WHERE nom = ? AND mdp = ?";
+                try (PreparedStatement st = co.prepareStatement(sql)) {
+                    st.setString(1, nom);
+                    st.setString(2, mdp);
+                    
+                    try (ResultSet rs = st.executeQuery()) {
+                        List<Utilisateur> list = new ArrayList<>();
+    
+                        if (rs.next()) {
+                            Utilisateur u = new Utilisateur();
+                            u.setMdp(rs.getString("mdp"));
+                            u.setMail(rs.getString("mail"));
+                            u.setNom(rs.getString("nom"));
+                            u.setMonnaie(rs.getInt("monnaie"));
+                            list.add(u);
+                        }
+                        return list;
+                    }
+                }
+            }
+        }
     public Utilisateur getUserById(int id) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sql = "SELECT * FROM utilisateur where id=?;"; // pas de concateneation, pour eviter injection sql
@@ -74,4 +99,68 @@ public class UserDAO {
     }
 
 
+    public Object removeUser(String nameUser) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "DELETE FROM utilisateur WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
+
+
+    public Object updateName(String nom,String nameUser) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET nom = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nameUser);
+                st.setString(2, nom);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
+
+
+    
+
+    public Object updateMail(String nameUser, String mail) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET mail = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, mail);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return mail;
+    }
+
+
+    public Object updateMonnaie(String nameUser, int monnaie) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET monnaie = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, monnaie);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
+
+
+    public Object updateMdp(String nameUser, String mdp) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE utilisateur SET mdp = ? WHERE nom = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, mdp);
+                st.setString(2, nameUser);
+                st.execute();
+            }
+        }
+        return nameUser;
+    }
 }

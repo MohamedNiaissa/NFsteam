@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(77, 131, 231);
+}
+
+
+.modif{
+    display: flex;
+}
+
+.modif a{
+    margin-left: 20px;
+}
+.profilTitre{
+    margin-top: 80px;
+}
+.modifContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modifContent div{
+    margin: 10px;
+    align-items: center;
+}
+
+.modifContent > div > a, .suppr{
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.suppr{
+    
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(213, 23, 17);
+    color: antiquewhite;
+
+}
