@@ -9,6 +9,7 @@ import com.coding.services.ArticleDAO;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,7 @@ public class ArticleController {
     public List<Article> getArticleByName(@PathVariable("nom") String nom) throws SQLException {
         return dao.getArticleByName(nom);
     }
-    @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
+    @PutMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
     public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
         Article art = new Article();
         art.setNomArt(nom);

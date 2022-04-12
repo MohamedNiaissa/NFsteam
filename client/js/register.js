@@ -48,7 +48,7 @@ btnRegister.addEventListener('click',function(){
         var headers = {}
         
         fetch(url, {
-            method : "GET",
+            method : "PUT",
             mode: 'cors',
             headers: headers
         })

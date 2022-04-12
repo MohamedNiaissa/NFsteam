@@ -13,7 +13,7 @@ document.querySelector(".sudbmitnew").addEventListener('click', function(){
     console.log(titre.value)
         let headers = {};
         fetch(url, {
-            method : "GET",
+            method : "PUT",
             mode: 'no-cors',
             headers: headers
         })

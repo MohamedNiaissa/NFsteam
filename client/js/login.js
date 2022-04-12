@@ -10,7 +10,7 @@ btn_login.addEventListener('click',function(){
 
     let url = `http://localhost:8080/users/login/${nomlog}/${mdplog}`;
     fetch(url, {
-        method : "GET",
+        method : "POST",
         mode: 'cors',
         headers: headers
     }).then((response) => {
