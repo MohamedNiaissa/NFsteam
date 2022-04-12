@@ -1,4 +1,17 @@
 let liste = [];
+let listetag= [];
+function callTag(list, i) {
+    let verif = 0;
+    for (let j = 0; j < listetag.length; j++) {
+        if (listetag[j] == list[0][i]['tag'])
+        {
+            verif++;
+        }
+    }
+    if (verif == 0){
+        listetag.push(list[0][i]['tag'])
+    }
+}
 function callAPI(){
     let httpRequest = new XMLHttpRequest();
     httpRequest.open('GET','http://localhost:8080/articles');
@@ -9,6 +22,7 @@ function callAPI(){
         categorie = document.createElement("div");
         categorie.className = "categorie";
         for (let i = liste[0].length-1; i > -1; i--) {
+            callTag(liste,i);
             if (localStorage.getItem("recherche") === "all" || localStorage.getItem("recherche") == null)
             {
                 categorie.innerHTML += '<div class="Copie div">\n' +
@@ -44,18 +58,19 @@ function callAPI(){
                 })
             }
         }
+        choixtag = document.getElementById("taglist");
+        choixtag.innerHTML = "";
+        for (let i = 0; i < listetag.length; i++) {
+            newtag = document.createElement("li");
+            newtag.innerHTML = '<a href="" class="clickable" id="'+listetag[i]+'">'+listetag[i]+'</a>'
+            choixtag.appendChild(newtag);
+        }
+        for (let i = 0; i < listetag.length; i++) {
+            document.getElementById(liste[0][i]['tag']).addEventListener('click', function () {
+                localStorage.setItem("recherche", liste[0][i]['tag'])
+            })
+        }
     }
 }
 // console.log(localStorage.getItem("nom"));
 callAPI();
-
-if(localStorage.getItem("nom") !== null){
-
-    let conn = document.querySelector(".Log");
-    conn.innerHTML = "Deconnexion";
-    conn.setAttribute("href","."); // . -> reload la page
-    conn.addEventListener('click',function(){localStorage.clear()})
-    let profil = document.querySelector(".Regi");
-    profil.innerHTML = "Profil";
-    profil.setAttribute("href","profil.html");
-}
