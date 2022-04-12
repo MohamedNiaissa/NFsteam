@@ -39,6 +39,18 @@ searchGlass.addEventListener('click',function(){
             }
             catalogue.innerHTML = '<div class="categorie">' + categorie.innerHTML + '</div>';
         }
+        for (let i = liste[0].length-1; i > -1; i--) {
+            if (document.getElementById(liste[0][i]['nomArt'])) {
+                document.getElementById(liste[0][i]['nomArt']).addEventListener('click', function () {
+                    localStorage.setItem("nomprod", liste[0][i]['nomArt'])
+                })
+            }
+            if (document.getElementById(liste[0][i]['tag']+i)) {
+                document.getElementById(liste[0][i]['tag']+i).addEventListener('click', function () {
+                    localStorage.setItem("recherche", liste[0][i]['tag'])
+                })
+            }
+        }
     }
     /*let copie = document.querySelectorAll(".Copie");
     
