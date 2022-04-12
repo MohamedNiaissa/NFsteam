@@ -1,4 +1,3 @@
-
 .nav{
     z-index: 1;
     height: 64px;
@@ -41,24 +40,6 @@ body{
     width: 25%;
     border-radius: 16px;
 }
-.Compte{
-    display: flex;
-    background: black;
-    align-items: center;
-    height: 50%;
-}
-.LogRegi{
-    color: white;
-    border-color: white;
-    border: solid;
-    border-radius: 4px;
-    background: #0000FF; /* fallback color if gradients are not supported*/
-    background: -webkit-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: -moz-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: -o-repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-    background: repeating-linear-gradient(#0000FF 50%, #00EEFF 60%);
-}
-
 .Product{
     position: absolute;
     display: flex;

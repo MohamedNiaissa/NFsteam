@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coding.models.Article;
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {

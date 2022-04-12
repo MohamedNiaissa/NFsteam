@@ -22,6 +22,10 @@ btn_login.addEventListener('click',function(){
             }catch(error){
                 console.log("non");
             }
+            if (localStorage.getItem("nom") === data[0].nom)
+            {
+
+            }
         })
     });
 })

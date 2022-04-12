@@ -16,15 +16,20 @@
     background: -o-repeating-linear-gradient(#5e00ff 50%, black 60%);
     background: repeating-linear-gradient(#5e00ff 50%, black 60%);
 }
-
+.index{
+    background: white;
+    border: outset;
+    border-color: dimgray;
+    border-radius: 32px;
+}
 .search{
     cursor: pointer;
 }
 .div{
     border-radius: 8px;
-    border: solid;
-    border-color: dimgray;
-    box-shadow: 0 5px 16px #5e00ff;
+    border: outset;
+    border-color: lightgrey;
+    box-shadow: 0 5px 8px #5e00ff;
 }
 .clickable{
     cursor: pointer;
@@ -60,12 +65,12 @@ a{
     display: flex;
     background: black;
     align-items: center;
-    height: 50%;
+    height: 1vh;
 }
 .LogRegi{
     color: white;
     border-color: white;
-    border: solid;
+    border: inset;
     border-radius: 4px;
     background: #5e00ff; /* fallback color if gradients are not supported*/
     background: -webkit-repeating-linear-gradient(#5e00ff 50%, black 60%);
@@ -97,6 +102,7 @@ a{
     to {opacity:1 ;}
 }
 .Copie{
+    border: outset;
     animation-name: entree;
     animation-duration: 0.5s;
     display:flex;
