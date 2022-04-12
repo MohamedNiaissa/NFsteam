@@ -29,7 +29,7 @@ function callAPI(){
                     '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                     '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
                     '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
-                    '<p>'+liste[0][i]['description'].slice(0,50)+'...</p>\n' +
+                    '<p>'+liste[0][i]['prixArt']+'€</p>\n' +
                     '</div>';
             }
             else
@@ -40,7 +40,7 @@ function callAPI(){
                         '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                         '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
                         '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
-                        '<p>'+liste[0][i]['description'].slice(0,50)+'...</p>\n' +
+                        '<p>'+liste[0][i]['prixArt']+'€</p>\n' +
                         '</div>';
                 }
             }

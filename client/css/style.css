@@ -1,3 +1,6 @@
+p{
+    margin: 0;
+}
 .nav{
     z-index: 1;
     height: 64px;
@@ -65,9 +68,10 @@ a{
     display: flex;
     background: black;
     align-items: center;
-    height: 1vh;
+    height: 50%;
 }
 .LogRegi{
+    height: 75%;
     color: white;
     border-color: white;
     border: inset;
@@ -130,4 +134,7 @@ a{
 }
 a{
     color: white;
+}
+.taglist{
+    margin-top: 16px;
 }
