@@ -62,13 +62,27 @@ function callAPI(){
         choixtag.innerHTML = "";
         for (let i = 0; i < listetag.length; i++) {
             newtag = document.createElement("li");
-            newtag.innerHTML = '<a href="" class="clickable" id="'+listetag[i]+'">'+listetag[i]+'</a>'
+            if (listetag[i] === localStorage.getItem("recherche")){
+                newtag.innerHTML = '<a href="" class="clickable active" id="'+listetag[i]+'">'+listetag[i]+'</a>'
+            }
+            else
+            {
+                newtag.innerHTML = '<a href="" class="clickable" id="'+listetag[i]+'">'+listetag[i]+'</a>'
+            }
             choixtag.appendChild(newtag);
         }
         for (let i = 0; i < listetag.length; i++) {
-            document.getElementById(listetag[i]).addEventListener('click', function () {
-                localStorage.setItem("recherche", listetag[i])
-            })
+            if (listetag[i] === localStorage.getItem("recherche")){
+                document.getElementById(listetag[i]).addEventListener('click', function () {
+                    localStorage.setItem("recherche", "all");
+                })
+            }
+            else
+            {
+                document.getElementById(listetag[i]).addEventListener('click', function () {
+                    localStorage.setItem("recherche", listetag[i]);
+                })
+            }
         }
     }
 }

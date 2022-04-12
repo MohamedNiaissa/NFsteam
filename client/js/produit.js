@@ -9,7 +9,7 @@ function callAPI() {
         headers: headers
     }).then((response) => {
         return response.json().then((data) => {
-            console.log(data);
+            document.getElementById("titrepage").innerHTML = "NFsTeam - " + data[0]['nomArt'];
             catalogue = document.getElementById("Product");
             categorie = document.createElement("div");
             categorie.className = "categorie";
