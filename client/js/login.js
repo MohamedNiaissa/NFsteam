@@ -15,6 +15,7 @@ btn_login.addEventListener('click',function(){
         headers: headers
     }).then((response) => {
         return response.json().then((data) => {
+            console.log(response)
             try{
                 localStorage.setItem("nom",data[0].nom);
                 localStorage.setItem("mail",data[0].mail);
