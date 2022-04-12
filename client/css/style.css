@@ -16,6 +16,10 @@
     background: -o-repeating-linear-gradient(#5e00ff 50%, black 60%);
     background: repeating-linear-gradient(#5e00ff 50%, black 60%);
 }
+
+.search{
+    cursor: pointer;
+}
 .div{
     border-radius: 8px;
     border: solid;

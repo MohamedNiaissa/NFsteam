@@ -20,7 +20,7 @@ btn_login.addEventListener('click',function(){
                 localStorage.setItem("mail",data[0].mail);
                 localStorage.setItem("monnaie",data[0].monnaie);
             }catch(error){
-                console.log("non")
+                console.log("non");
             }
         })
     });

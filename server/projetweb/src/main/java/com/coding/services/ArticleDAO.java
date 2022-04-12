@@ -34,12 +34,12 @@ public class ArticleDAO {
         }
     }
     public List<Article> getArticleByName(String Name) throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // try {
+        //     Class.forName("com.mysql.jdbc.Driver");
+        // } catch (ClassNotFoundException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sqlArt = "SELECT * FROM article";
             try (Statement st = co.createStatement()) {

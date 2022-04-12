@@ -18,14 +18,14 @@ function callAPI(){
     httpRequest.send();
     httpRequest.onload= function(){
         liste.push(JSON.parse(httpRequest.responseText))
-        catalogue = document.getElementById("Product");
-        categorie = document.createElement("div");
+        let catalogue = document.getElementById("Product");
+        let categorie = document.createElement("div");
         categorie.className = "categorie";
         for (let i = liste[0].length-1; i > -1; i--) {
             callTag(liste,i);
             if (localStorage.getItem("recherche") === "all" || localStorage.getItem("recherche") == null)
             {
-                categorie.innerHTML += '<div class="Copie div">\n' +
+                categorie.innerHTML += '<div class="Copie div" id = "id'+liste[0][i]['nomArt']+'">\n' +
                     '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                     '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
                     '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
@@ -74,3 +74,15 @@ function callAPI(){
 }
 // console.log(localStorage.getItem("nom"));
 callAPI();
+
+if(localStorage.getItem("nom") !== null){
+
+    let conn = document.querySelector(".Log");
+    conn.innerHTML = "Deconnexion";
+    conn.setAttribute("href","."); // . -> reload la page
+    conn.addEventListener('click',function(){localStorage.clear()})
+    let profil = document.querySelector(".Regi");
+    profil.innerHTML = "Profil";
+    profil.setAttribute("href","profil.html");
+}
+
