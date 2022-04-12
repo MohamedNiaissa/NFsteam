@@ -4,7 +4,6 @@ let searchlist = [];
 
 barreRech.addEventListener('click',function(){
     console.log(barreRech.value);
-
 })
 
 searchGlass.addEventListener('click',function(){
@@ -16,7 +15,7 @@ searchGlass.addEventListener('click',function(){
     for(let i = 0;i<copie.length;i++){
         console.log(copie[i].id)
         let copieid = copie[i].id;
-        if(barreRech.value.includes(copieid.substr(2))){
+        if(copieid.substr(2).includes(barreRech.value)){
             console.log("********************")
             searchlist.push(copie[i])
             console.log("********************")
@@ -30,10 +29,7 @@ searchGlass.addEventListener('click',function(){
 
     let categorie = document.querySelector('.categorie')
     for(let i = 0;i < searchlist.length;i++){
-        categorie.innerHTML += searchlist[i].innerHTML
-    
-
-
+        categorie.innerHTML += '<div class="Copie div">' + searchlist[i].innerHTML + "</div>"
     }
     searchlist = [];
 
