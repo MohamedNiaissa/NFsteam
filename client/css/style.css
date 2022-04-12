@@ -20,10 +20,7 @@ p{
     background: repeating-linear-gradient(#5e00ff 50%, black 60%);
 }
 .index{
-    background: white;
-    border: outset;
-    border-color: dimgray;
-    border-radius: 32px;
+    height: 64px;
 }
 .search{
     cursor: pointer;

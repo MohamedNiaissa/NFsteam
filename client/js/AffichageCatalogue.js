@@ -26,9 +26,9 @@ function callAPI(){
             if (localStorage.getItem("recherche") === "all" || localStorage.getItem("recherche") == null)
             {
                 categorie.innerHTML += '<div class="Copie div" id = "id'+liste[0][i]['nomArt']+'">\n' +
-                    '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
+                    '<a href="index.html" class="clickable" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                     '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
-                    '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
+                    '<a href="produit.html" class="clickable" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
                     '<p>'+liste[0][i]['prixArt']+'€</p>\n' +
                     '</div>';
             }
@@ -37,9 +37,9 @@ function callAPI(){
                 if (liste[0][i]['tag'] === localStorage.getItem("recherche"))
                 {
                     categorie.innerHTML += '<div class="Copie div">\n' +
-                        '<a href="index.html" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
+                        '<a href="index.html" class="clickable" id="'+liste[0][i]['tag']+i+'">'+liste[0][i]['tag']+'</a>'+
                         '<img class="imgProduct" src="'+liste[0][i]['imgArt']+'">\n' +
-                        '<a href="produit.html" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
+                        '<a href="produit.html" class="clickable" id="'+liste[0][i]['nomArt']+'">'+liste[0][i]['nomArt']+'</a>\n' +
                         '<p>'+liste[0][i]['prixArt']+'€</p>\n' +
                         '</div>';
                 }
