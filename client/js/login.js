@@ -25,7 +25,7 @@ btn_login.addEventListener('click',function(){
             }
             if (localStorage.getItem("nom") === data[0].nom)
             {
-
+                document.location.href="../html/index.html";
             }
         })
     });

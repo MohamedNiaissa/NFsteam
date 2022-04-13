@@ -6,6 +6,7 @@ if(localStorage.getItem("nom") !== null){
     pan = document.createElement("a")
     pan.innerHTML = "Panier";
     pan.className = "LogRegi";
+    pan.setAttribute("href","panier.html");
     document.getElementsByClassName("Compte")[0].appendChild(pan);
     let profil = document.querySelector(".Regi");
     profil.innerHTML = "Profil";

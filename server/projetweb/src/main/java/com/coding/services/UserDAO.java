@@ -30,6 +30,7 @@ public class UserDAO {
                     List<Utilisateur> list = new ArrayList<>();
                     while (rs.next()) {
                         Utilisateur u = new Utilisateur();
+                        u.setIdUser(rs.getInt("idUser"));
                         u.setMdp(rs.getString("mdp"));
                         u.setMail(rs.getString("mail"));
                         u.setNom(rs.getString("nom"));

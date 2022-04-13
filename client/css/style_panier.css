@@ -3,8 +3,10 @@
     top:5vw;
     display: flex;
     width: 100vw;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .buy{
     display: flex;
