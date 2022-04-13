@@ -28,15 +28,14 @@ public class UsersController {
 
     //@CrossOrigin
     @GetMapping("/adduser/{nom}/{mail}/{mdp}/{monnaie}")
-    public Utilisateur addUser(@PathVariable("nom") String nom,@PathVariable("mail") String mail,@PathVariable("mdp") String mdp,@PathVariable("monnaie") int monnaie) throws SQLException{
+    public boolean addUser(@PathVariable("nom") String nom,@PathVariable("mail") String mail,@PathVariable("mdp") String mdp,@PathVariable("monnaie") int monnaie) throws SQLException{
         Utilisateur user = new Utilisateur();
         user.setNom(nom);
         user.setMail(mail);
         user.setMdp(mdp);
         user.setMonnaie(monnaie);
         dao.addUser(user);
-        return null;
-        
+        return true;
     }
 
     //-----------------------------------------------------Modif User-----------------------------------------------------

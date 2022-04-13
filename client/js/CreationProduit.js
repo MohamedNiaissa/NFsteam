@@ -10,7 +10,6 @@ let tag = document.getElementById('Tag');
 
 document.querySelector(".sudbmitnew").addEventListener('click', function(){
     let url =  `http://localhost:8080/articles/addart/${titre.value}/${img.value}/${support.value}/${desc.value}/${quantiten.value}/${prix.value}/${tag.value}`;
-    console.log(titre.value)
         let headers = {};
         fetch(url, {
             method : "GET",

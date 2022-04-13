@@ -1,7 +1,7 @@
 package com.coding.models;
 
 public class Utilisateur {
-    // private int idUser;
+    private int idUser;
     private String mail;
     private String mdp;
     private String nom;
@@ -11,12 +11,12 @@ public class Utilisateur {
     }
 
     public Utilisateur(){}
-    // public int getIdUser() {
-    //     return idUser;
-    // }
-    // public void setIdUser(int idUser) {
-    //     this.idUser = idUser;
-    // }
+    public int getIdUser() {
+        return idUser;
+    }
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
     public String getMail() {
         return mail;
     }

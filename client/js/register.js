@@ -32,7 +32,6 @@ btnRegister.addEventListener('click',function(){
     for(let key in dataUser){
         if(dataUser[key] === ""){
             nonValid()
-            console.log('fdxfxfxdfxxdxx')
             break;
         }
     }
@@ -51,8 +50,11 @@ btnRegister.addEventListener('click',function(){
             method : "GET",
             mode: 'cors',
             headers: headers
+        }).then((response) => {
+            return response.json().then((data) => {
+                document.location.href="../html/index.html";
+            })
         })
- 
     }})
 
     document.body.addEventListener('dblclick',function(){
