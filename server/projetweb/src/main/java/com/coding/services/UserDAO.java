@@ -34,6 +34,7 @@ public class UserDAO {
                         u.setMdp(rs.getString("mdp"));
                         u.setMail(rs.getString("mail"));
                         u.setNom(rs.getString("nom"));
+                        u.setMonnaie(rs.getInt("monnaie"));
                         list.add(u);
                     }
                     return list;

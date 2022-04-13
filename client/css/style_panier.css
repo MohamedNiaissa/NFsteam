@@ -1,6 +1,6 @@
 .panier{
     position: relative;
-    top:5vw;
+    top:80px;
     display: flex;
     width: 100vw;
     flex-direction: row;

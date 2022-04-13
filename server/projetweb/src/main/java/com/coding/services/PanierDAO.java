@@ -72,6 +72,21 @@ public class PanierDAO {
             return false;
         }
     }
+    public boolean removeCommand(int idUser,int idArticle) {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "DELETE FROM panier WHERE idUser = ? and idArticle=?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, idUser);
+                st.setInt(2, idArticle);
+                st.execute();
+                return true;
+            }catch (Error | SQLException error){
+                return false;
+            }
+        }catch (Error | SQLException error){
+            return false;
+        }
+    }
 
 }
 

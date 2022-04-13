@@ -35,6 +35,10 @@ public class PanierController {
     public List<Panier> getSpecificPanier(@PathVariable("idUser") int idUser ) throws SQLException{
         return dao.getSpecificPanier(idUser);
     }
+    @GetMapping("/retreat/{idUser}/{idArticle}")
+    public boolean removeCommand(@PathVariable("idUser") int idUser, @PathVariable("idArticle") int idArticle) throws SQLException{
+        return dao.removeCommand(idUser,idArticle);
+    }
     @GetMapping("/newCom/{nomUser}/{nomgame}")
     public boolean setSpecificPanier(@PathVariable("nomUser") String nomUser, @PathVariable("nomgame") String nomgame) throws SQLException{
         List<Utilisateur> list = new ArrayList<Utilisateur>();
