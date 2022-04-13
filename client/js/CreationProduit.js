@@ -12,7 +12,7 @@ document.querySelector(".sudbmitnew").addEventListener('click', function(){
     let url =  `http://localhost:8080/articles/addart/${titre.value}/${img.value}/${support.value}/${desc.value}/${quantiten.value}/${prix.value}/${tag.value}`;
         let headers = {};
         fetch(url, {
-            method : "GET",
+            method : "PUT",
             mode: 'no-cors',
             headers: headers
         })

@@ -7,9 +7,13 @@ import com.coding.models.Utilisateur;
 import com.coding.services.UserDAO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,27 +44,27 @@ public class UsersController {
 
     //-----------------------------------------------------Modif User-----------------------------------------------------
 
-    @GetMapping("/removeuser/{nom}")
+    @DeleteMapping("/removeuser/{nom}")
     public  Object removeUser(@PathVariable("nom") String nom) throws SQLException{
         return dao.removeUser(nom);
     }
 
-    @GetMapping("/updateusernom/{nom}/{newnom}")
+    @PostMapping("/updateusernom/{nom}/{newnom}")
     public  Object updateName(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
         return dao.updateName(nom,newnom);
     }
 
-    @GetMapping("/updateusermail/{nom}/{mail}")
+    @PostMapping("/updateusermail/{nom}/{mail}")
     public  Object updateMail(@PathVariable("mail") String mail, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMail(nom,mail);
     }
 
-    @GetMapping("/updateusermdp/{nom}/{mdp}")
+    @PostMapping("/updateusermdp/{nom}/{mdp}")
     public  Object updateMdp(@PathVariable("mdp") String mdp, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMdp(nom,mdp);
     }
 
-    @GetMapping("/updateusermonnaie/{nom}/{monnaie}")
+    @PostMapping("/updateusermonnaie/{nom}/{monnaie}")
     public  Object updateMonnaie(@PathVariable("monnaie") int monnaie, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMonnaie(nom,monnaie);
     }
@@ -73,7 +77,8 @@ public class UsersController {
 
     //-----------------------------------------------------Login User-----------------------------------------------------
 
-    @GetMapping("/login/{nom}/{mdp}")
+
+    @PostMapping("/login/{nom}/{mdp}")
     public  Object fetchUser(@PathVariable("nom") String nom, @PathVariable("mdp") String mdp) throws SQLException{
         return dao.fetchUser(nom,mdp);
     }

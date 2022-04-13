@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61da7cbc-4cd4-49b5-b26b-49a157c38869" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../client/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/html/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/html/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projetweb/src/main/java/com/coding/projetweb/ProjetwebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/projetweb/src/main/java/com/coding/projetweb/ProjetwebApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
