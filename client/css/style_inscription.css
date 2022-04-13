@@ -1,21 +1,27 @@
-.register{
-    position:relative;
-    top: 80px;
+.contentRegister{
+    position: relative;
+    top: 90px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    width: 400px;
     height: 100%;
     text-align: center;
-    background-color: antiquewhite;
-    color:black;
+    background-color: #7f53ac;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+    color:rgb(255, 255, 255);
 }
 .nav{
     position:absolute;
     left:0px;
-}
-
-.register :nth-child(n){
-    margin-top: 6px;
 }
 
 .btn_register{
@@ -24,7 +30,19 @@
     background-color: aliceblue;
     padding: 12px;
     border-radius: 20px;
+    width: 50px;
+    color: aliceblue;
+    margin-top: 190px;
+    background-color: #6e72fc;
+    background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+
 }
+
+.register :nth-child(n){
+    margin-top: 10px;
+}
+
+
 
 .errormsg{
     position: absolute;
