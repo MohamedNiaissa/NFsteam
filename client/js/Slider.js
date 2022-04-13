@@ -19,8 +19,6 @@ slide.addEventListener('change',function(){
             liste.push(JSON.parse(httpRequest.responseText))
 
 
-
-            // if(slide.value === prixArticle ) console.log('oui')
             for(let i = 0;i < divCopie.length; i++){
                 let prixArticle = prixCopie[i].innerHTML.substring(0,prixCopie[0].innerHTML.length-1);
 
@@ -31,46 +29,6 @@ slide.addEventListener('change',function(){
                 }
             }
 
-            // for(let i = 0;i < liste[0].length; i++){
-            //     let currentElem = liste[0][i];
-            //     // console.log(liste[0][i])
-            //     if(liste[0][i].prixArt <= slide.value){
-            //         let divelem = document.createElement("div");
-            //         divelem.className = "Copie";
-            //         divelem.className += " div";
-            //         divelem.id = "id"+liste[0][i].nomArt;
-            //         categorie.appendChild(divelem)
-
-            //         let lienelemTag = document.createElement("a");
-            //         lienelemTag.setAttribute("href","index.html")
-            //         lienelemTag.className = "clickable";
-            //         lienelemTag.innerHTML = currentElem.tag;
-
-            //         let imgelem = document.createElement('img');
-            //         imgelem.setAttribute('src',currentElem.imgArt);
-            //         imgelem.className = 'imgProduct';
-
-
-            //         let lienelem = document.createElement("a");
-            //         lienelem.className = "clickable";
-            //         lienelem.innerHTML = currentElem.tag;
-            //         lienelem.setAttribute("href","produit.html")
-            //         lienelem.id = currentElem.nomArt;
-            //         lienelem.innerHTML = currentElem.nomArt;
-
-            //         let paraPrix = document.createElement('p');
-            //         paraPrix.innerHTML = currentElem.prixArt + "$";
-
-            //         divelem.appendChild(lienelemTag);
-            //         divelem.appendChild(imgelem);
-            //         divelem.appendChild(lienelem);
-            //         divelem.appendChild(paraPrix);
-            //     }
-            //     let elemdiv = document.querySelectorAll('div');
-            //     for(let i= 0; i<elemdiv.length;i++){
-            //         elemdiv[i].remove;
-            //     }
-            // }
         }
         liste.length= 0;
     }
