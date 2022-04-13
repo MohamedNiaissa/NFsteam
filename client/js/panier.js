@@ -11,7 +11,7 @@ function retraitPanier(idUser,idArticle) {
         return response.json().then((data) => {
             if(data)
             {
-                /*document.location.href="../html/panier.html";*/
+                console.log("fait")
             }
         })
     })
@@ -29,9 +29,7 @@ function affichagepanier() {
             for (let i = 0; i < data.length; i++) {
                 if (data[i]["nom"] === localStorage.getItem("nom")) {
                     idUser = data[i]["idUser"]
-                    document.getElementById("actuelPrix").innerHTML = "Vous avez " + data[i]["monnaie"] + "€ "
-                    document.getElementById("actuelPrix").className = "idUser"
-                    document.getElementById("actuelPrix").id = data[i]["idUser"]
+                    document.getElementById("monnaie").innerHTML = "Vous avez " + data[i]["monnaie"] + "€ "
                     let url = `http://localhost:8080/panier/${idUser}`;
                     let headers = {};
                     fetch(url, {
@@ -55,7 +53,22 @@ function affichagepanier() {
                                             '            <h2>' + data3[0]["nomArt"] + '</h2>\n' +
                                             '            <p id="'+data3[0]['idArticle']+'" class="clickable">Retirer du panier</p>'
                                         panier.innerHTML += '<div class="Copie" id="div">'+copie.innerHTML+'</div>\n'
-                                        document.getElementById(data3[0]['idArticle']).addEventListener('click',retraitPanier(data[i]['idUser'],data3[0]['idArticle']))
+                                        document.getElementById(data3[0]['idArticle']).addEventListener('click',function () {
+                                            let url = `http://localhost:8080/panier/retreat/${data[i]['idUser']}/${data3[0]['idArticle']}`;
+                                            let headers = {};
+                                            fetch(url, {
+                                                method: "GET",
+                                                mode: 'cors',
+                                                headers: headers
+                                            }).then((response) => {
+                                                return response.json().then((data) => {
+                                                    if(data)
+                                                    {
+                                                        document.location.href="../html/panier.html";
+                                                    }
+                                                })
+                                            })
+                                        })
                                         let prixtotal = 0
                                         total = document.getElementById("Total")
                                         let produit = document.getElementsByClassName("prixproduit")
