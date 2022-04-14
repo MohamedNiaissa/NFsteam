@@ -15,18 +15,13 @@ btn_login.addEventListener('click',function(){
         headers: headers
     }).then((response) => {
         return response.json().then((data) => {
-            console.log(response)
             try{
                 localStorage.setItem("nom",data[0].nom);
                 localStorage.setItem("mail",data[0].mail);
                 localStorage.setItem("monnaie",data[0].monnaie);
             }catch(error){
-                console.log("non");
             }
-            if (localStorage.getItem("nom") === data[0].nom)
-            {
-                document.location.href="../html/index.html";
-            }
+            document.location.href="../html/index.html";
         })
     });
 })

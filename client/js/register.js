@@ -50,11 +50,8 @@ btnRegister.addEventListener('click',function(){
             method : "PUT",
             mode: 'cors',
             headers: headers
-        }).then((response) => {
-            return response.json().then((data) => {
-                document.location.href="../html/index.html";
-            })
         })
+        document.location.href="../html/index.html";
     }})
 
     document.body.addEventListener('dblclick',function(){
