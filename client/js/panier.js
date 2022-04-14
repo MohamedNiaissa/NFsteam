@@ -86,7 +86,8 @@ document.getElementById("achat").addEventListener('click',function () {
             return response.json().then((data) => {
                 console.log(data);
                 if (data) {
-                    let url = `http://localhost:8080/panier/retreats/${localStorage.getItem("nom")})}`;
+                    let url = `http://localhost:8080/panier/retreats/${localStorage.getItem("nom")}`;
+                    console.log(url);
                     let headers = {};
                     fetch(url, {
                         method: "GET",
