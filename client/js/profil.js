@@ -36,6 +36,7 @@ btn_nommodif.addEventListener('click',function(){
         mode: 'cors',
         headers: headers
     })
+
 })
 
 btn_modifmonnaie.addEventListener('click',function(){

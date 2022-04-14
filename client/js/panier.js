@@ -74,44 +74,54 @@ function affichagepanier() {
 }
 affichagepanier();
 document.getElementById("achat").addEventListener('click',function () {
-    let url = `http://localhost:8080/updateusermonnaie/${localStorage.getItem("nom")}/${(montant-prixtotal)}`;
-    let headers = {};
-    fetch(url, {
-        method: "GET",
-        mode: 'cors',
-        headers: headers
-    }).then((response) => {
-        return response.json().then((data) => {
-            if(data)
-            {
-                let url = `http://localhost:8080/retreats/${localStorage.getItem("nom")})}`;
-                let headers = {};
-                fetch(url, {
-                    method: "GET",
-                    mode: 'cors',
-                    headers: headers
-                }).then((response) => {
-                    return response.json().then((data2) => {
-                        if (data2){
-                            document.location.href="../html/panier.html";
-                        }
-                        else
-                        {
-                            let url = `http://localhost:8080/updateusermonnaie/${localStorage.getItem("nom")}/${(montant)}`;
-                            let headers = {};
-                            fetch(url, {
-                                method: "GET",
-                                mode: 'cors',
-                                headers: headers
-                            }).then((response) => {
-                                return response.json().then((data) => {
-                                    document.getElementById("achat").innerHTML="une erreur est survenu, veuillez contactez le service technique";
+    let newmontant = montant-prixtotal;
+    if (newmontant>0) {
+        let url = `http://localhost:8080/users/updateusermonnaie/${localStorage.getItem("nom")}/${newmontant}`;
+        let headers = {};
+        fetch(url, {
+            method: "POST",
+            mode: 'cors',
+            headers: headers
+        }).then((response) => {
+            return response.json().then((data) => {
+                console.log(data);
+                if (data) {
+                    let url = `http://localhost:8080/panier/retreats/${localStorage.getItem("nom")}`;
+                    console.log(url);
+                    let headers = {};
+                    fetch(url, {
+                        method: "GET",
+                        mode: 'cors',
+                        headers: headers
+                    }).then((response) => {
+                        return response.json().then((data2) => {
+                            console.log(data2);
+                            if (data2) {
+                                document.location.href = "../html/panier.html";
+                            } else {
+                                let url = `http://localhost:8080/users/updateusermonnaie/${localStorage.getItem("nom")}/${(montant)}`;
+                                let headers = {};
+                                fetch(url, {
+                                    method: "POST",
+                                    mode: 'cors',
+                                    headers: headers
+                                }).then((response) => {
+                                    return response.json().then((data3) => {
+                                        console.log(data3);
+                                        if (data3){
+                                            document.location.href = "../html/panier.html";
+                                        }
+                                        else
+                                        {
+                                            document.getElementById("achat").innerHTML = "une erreur est survenu, veuillez contactez le service technique";
+                                        }
+                                    })
                                 })
-                            })
-                        }
+                            }
+                        })
                     })
-                })
-            }
+                }
+            })
         })
-    })
+    }
 })
