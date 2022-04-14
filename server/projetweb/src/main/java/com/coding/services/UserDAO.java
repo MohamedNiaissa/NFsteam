@@ -148,13 +148,13 @@ public class UserDAO {
                 st.setInt(1, monnaie);
                 st.setString(2, nameUser);
                 st.execute();
+                return true;
             }catch (Error | SQLException error){
                 return false;
             }
         }catch (Error | SQLException error){
             return false;
         }
-        return false;
     }
 
 
