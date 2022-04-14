@@ -64,7 +64,7 @@ public class UsersController {
     }
 
     @PostMapping("/updateusermonnaie/{nom}/{monnaie}")
-    public  Object updateMonnaie(@PathVariable("monnaie") int monnaie, @PathVariable("nom") String nom) throws SQLException{
+    public  boolean updateMonnaie(@PathVariable("monnaie") int monnaie, @PathVariable("nom") String nom) throws SQLException{
         return dao.updateMonnaie(nom,monnaie);
     }
 

@@ -35,6 +35,14 @@ public class PanierController {
     public List<Panier> getSpecificPanier(@PathVariable("idUser") int idUser ) throws SQLException{
         return dao.getSpecificPanier(idUser);
     }
+    @GetMapping("/retreat/{idUser}/{idArticle}")
+    public boolean removeCommand(@PathVariable("idUser") int idUser, @PathVariable("idArticle") int idArticle) throws SQLException{
+        return dao.removeCommand(idUser,idArticle);
+    }
+    @GetMapping("/retreats/{idUser}")
+    public boolean removeCommands(@PathVariable("idUser") int idUser) throws SQLException{
+        return dao.removeCommands(idUser);
+    }
     @GetMapping("/newCom/{nomUser}/{nomgame}")
     public boolean setSpecificPanier(@PathVariable("nomUser") String nomUser, @PathVariable("nomgame") String nomgame) throws SQLException{
         List<Utilisateur> list = new ArrayList<Utilisateur>();
@@ -49,5 +57,18 @@ public class PanierController {
             }
         }
     return false;
+    }
+    @GetMapping("/newCom/{nomUser}")
+    public boolean setSpecificPanier(@PathVariable("nomUser") String nomUser) throws SQLException{
+        List<Utilisateur> list = new ArrayList<Utilisateur>();
+        list = daou.getUsers();
+        int idUser;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getNom().equals(nomUser)){
+                idUser = list.get(i).getIdUser();
+                return dao.removeCommands(idUser);
+            }
+        }
+        return false;
     }
 }
