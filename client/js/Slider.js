@@ -20,9 +20,11 @@ slide.addEventListener('change',function(){
 
 
             for(let i = 0;i < divCopie.length; i++){
-                let prixArticle = prixCopie[i].innerHTML.substring(0,prixCopie[0].innerHTML.length-1);
-
-                if(prixArticle > slide.value ){
+                let prixArticle = prixCopie[i].innerHTML.substring(0,prixCopie[i].innerHTML.length-1);
+                console.log(slide.value.length);
+                if(slide.value.length == 3  ){
+                    divCopie[i].style.display = "flex";
+                }else if(prixArticle > slide.value ){
                     divCopie[i].style.display = "none";
                 }else{
                     divCopie[i].style.display = "flex";

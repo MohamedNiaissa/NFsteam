@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.coding.projetweb")
+
 public class ProjetwebApplication {
 
 	public static void main(String[] args) {
