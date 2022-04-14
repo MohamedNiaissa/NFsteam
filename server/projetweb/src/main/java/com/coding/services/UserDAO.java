@@ -141,16 +141,20 @@ public class UserDAO {
     }
 
 
-    public Object updateMonnaie(String nameUser, int monnaie) throws SQLException {
+    public boolean updateMonnaie(String nameUser, int monnaie) {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sql = "UPDATE utilisateur SET monnaie = ? WHERE nom = ?";
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setInt(1, monnaie);
                 st.setString(2, nameUser);
                 st.execute();
+            }catch (Error | SQLException error){
+                return false;
             }
+        }catch (Error | SQLException error){
+            return false;
         }
-        return nameUser;
+        return false;
     }
 
 
