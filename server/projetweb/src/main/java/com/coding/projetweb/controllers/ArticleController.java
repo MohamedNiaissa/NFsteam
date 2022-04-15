@@ -60,10 +60,11 @@ public class ArticleController {
 
     @PostMapping("/updateartnom/{nom}/{newnom}")
     public  Object updateNameArt(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
+        log.debug("updateartnom {}" + nom + " par " + newnom);
         return dao.updateNameArt(nom,newnom);
     }
 
-    @PostMapping("/updateartdesc/{nom}/{desc}/{newDesc}")
+    @PostMapping("/updateartdesc/{nom}/{newDesc}")
     public  Object updateDesc(@PathVariable("newDesc") String newDesc,@PathVariable("nom") String nom) throws SQLException{
         return dao.updateDesc(newDesc,nom);
     }
