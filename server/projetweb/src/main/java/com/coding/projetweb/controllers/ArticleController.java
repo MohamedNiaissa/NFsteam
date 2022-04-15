@@ -48,10 +48,47 @@ public class ArticleController {
         log.debug("addArticle : {}", article);
         return art;
     }
+
+
+    /****************************************** MODIF ARTICLE ******************************************/
+
     @DeleteMapping("/deleteart/{nom}")
     public Object removeArticle(@PathVariable("nom") String nom) throws SQLException {
-        /*log.debug("removeArticle {}",nom);*/
+        log.debug("removeArticle {}",nom);
         return dao.removeArticle(nom);
+    }
+
+    @PostMapping("/updateartnom/{nom}/{newnom}")
+    public  Object updateNameArt(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
+        return dao.updateNameArt(nom,newnom);
+    }
+
+    @PostMapping("/updateartdesc/{nom}/{desc}/{newDesc}")
+    public  Object updateDesc(@PathVariable("newDesc") String newDesc,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateDesc(newDesc,nom);
+    }
+
+    @PostMapping("/updateartsupp/{nom}/{newSupp}")
+    public  Object updateMdp(@PathVariable("newSupp") String newSupp,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateSupport(newSupp,nom);
+    }
+
+    @PostMapping("/updatearttag/{nom}/{newTag}")
+    public  Object updateTag(@PathVariable("newTag") String newTag,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateTag(newTag,nom);
+    }
+
+    @PostMapping("/updateartprix/{nom}/{newPrix}")
+    public  Object updatePrix(@PathVariable("newPrix") int newPrix,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updatePrix(newPrix,nom);
+    }
+    @PostMapping("/updateartquant/{nom}/{newQuant}")
+    public  Object updateQuant(@PathVariable("newQuant") int newQuant,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateQuant(newQuant,nom);
+    }
+    @PostMapping("/updateartimg/{nom}/{newImg}")
+    public  Object updateImg(@PathVariable("newImg") String newImg,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateImg(newImg,nom);
     }
 
 
