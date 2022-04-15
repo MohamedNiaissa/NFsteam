@@ -30,7 +30,7 @@ public class UsersController {
     }
 
     //@CrossOrigin
-    @GetMapping("/adduser/{nom}/{mail}/{mdp}/{monnaie}")
+    @PutMapping("/adduser/{nom}/{mail}/{mdp}/{monnaie}")
     public boolean addUser(@PathVariable("nom") String nom,@PathVariable("mail") String mail,@PathVariable("mdp") String mdp,@PathVariable("monnaie") int monnaie) throws SQLException{
         Utilisateur user = new Utilisateur();
         user.setNom(nom);

@@ -10,6 +10,7 @@ import com.coding.services.PanierDAO;
 import com.coding.services.UserDAO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,11 +36,11 @@ public class PanierController {
     public List<Panier> getSpecificPanier(@PathVariable("idUser") int idUser ) throws SQLException{
         return dao.getSpecificPanier(idUser);
     }
-    @GetMapping("/retreat/{idUser}/{idArticle}")
+    @DeleteMapping("/retreat/{idUser}/{idArticle}")
     public boolean removeCommand(@PathVariable("idUser") int idUser, @PathVariable("idArticle") int idArticle) throws SQLException{
         return dao.removeCommand(idUser,idArticle);
     }
-    @GetMapping("/retreats/{nomUser}")
+    @DeleteMapping("/retreats/{nomUser}")
     public boolean removeCommands(@PathVariable("nomUser") String nomUser) throws SQLException{
         List<Utilisateur> list = new ArrayList<Utilisateur>();
         list = daou.getUsers();

@@ -36,15 +36,15 @@ function affichagepanier() {
                                     return response.json().then((data3) => {
                                         copie = document.createElement("div");
                                         copie.innerHTML = '<img class="imgProduct" src="' + data3[0]['imgArt'] + '">\n' +
-                                            '            <p class="prixproduit">' + data3[0]["prixArt"] + '€</p>\n' +
+                                            '            <p class="prixproduit">' + data3[0]["prixArt"] + '$</p>\n' +
                                             '            <h2>' + data3[0]["nomArt"] + '</h2>\n' +
-                                            '            <p id="'+data3[0]['idArticle']+'" class="clickable">Retirer du panier</p>'
-                                        panier.innerHTML += '<div class="Copie" id="div">'+copie.innerHTML+'</div>\n'
+                                            '            <p id="'+data3[0]['idArticle']+'" class="clickable">Retirer du panier</p>';
+                                        panier.innerHTML += '<div class="Copie" id="div">'+copie.innerHTML+'</div>\n';
                                         document.getElementById(data3[0]['idArticle']).addEventListener('click',function () {
                                             let url = `http://localhost:8080/panier/retreat/${data[i]['idUser']}/${data3[0]['idArticle']}`;
                                             let headers = {};
                                             fetch(url, {
-                                                method: "GET",
+                                                method: "DELETE",
                                                 mode: 'cors',
                                                 headers: headers
                                             }).then((response) => {
@@ -61,7 +61,7 @@ function affichagepanier() {
                                         for(let i = 0;i < produit.length;i++){
                                             prixtotal += parseFloat(produit[i].innerHTML)
                                         }
-                                        total.innerHTML = "Total : " + prixtotal + "€";
+                                        total.innerHTML = "Total : " + prixtotal + "$";
                                     })
                                 })
                             }
