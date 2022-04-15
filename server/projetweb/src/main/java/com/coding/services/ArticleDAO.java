@@ -33,6 +33,17 @@ public class ArticleDAO {
             }
         }
     }
+    public Object removeArticle(String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "DELETE FROM article WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nom);
+                st.execute();
+            }
+        }
+        return null;
+    }
+
     public List<Article> getArticleByName(String Name) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sqlArt = "SELECT * FROM article";
@@ -100,14 +111,97 @@ public class ArticleDAO {
             }
         }
     }
-    public void updateQuant(int id, int quant) throws SQLException{
+
+
+
+    public Object updateNameArt(String newnomArt,String nomArt) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
-            String sql = "UPDATE article SET quantart = ? WHERE idArticle = ?;";
+            String sql = "UPDATE article SET nomart = ? WHERE nomart = ?";
             try (PreparedStatement st = co.prepareStatement(sql)) {
-                st.setInt(1, quant);
-                st.setInt(2, id);
+                st.setString(1, nomArt);
+                st.setString(2, newnomArt);
                 st.execute();
             }
         }
+        return null;
     }
+
+    public Object updateDesc(String newDesc,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET description = ? WHERE  nomArt = ? ";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, newDesc);
+                st.setString(2, nom);
+                st.execute();
+            }
+        }
+        return null;
+    }
+
+    public Object updateSupport(String newSupp,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET nomconsole = ? WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, newSupp);
+                st.setString(2, nom);
+
+                st.execute();
+            }
+        }
+        return null;
+    }
+
+
+    public Object updateTag(String newTag,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET tag = ? WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, newTag);
+                st.setString(2, nom);
+
+                st.execute();
+            }
+        }
+        return null;
+    }
+
+
+    public Object updatePrix(int newPrix,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET prixart = ? WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, newPrix);
+                st.setString(2, nom);
+
+                st.execute();
+            }
+        }
+        return null;
+    }
+
+    public Object updateQuant(int newQuant,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET quantart = ? WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, newQuant);
+                st.setString(2, nom);
+
+                st.execute();
+            }
+        }
+        return null;
+    }
+
+    public Object updateImg(String newImg,String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET imgart = ? WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, newImg);
+                st.setString(2, nom);
+                st.execute();
+            }
+        }
+        return null;
+    }
+
 }

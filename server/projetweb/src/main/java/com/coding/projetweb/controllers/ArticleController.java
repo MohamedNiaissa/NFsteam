@@ -6,13 +6,10 @@ import java.util.List;
 import com.coding.services.ArticleDAO;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
+//import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.coding.models.Article;
@@ -22,6 +19,7 @@ import com.coding.models.Article;
 @RestController
 @RequestMapping("/articles")
 public class ArticleController {
+    private static final Logger log = LoggerFactory.getLogger(ArticleController.class);
     private ArticleDAO dao = new ArticleDAO();
 
     @GetMapping("")
@@ -36,25 +34,63 @@ public class ArticleController {
     public Article getArticleById(@PathVariable("id") int id) throws SQLException {
         return dao.getArticleById(id);
     }
-    @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
-    public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") StringBuffer imgM,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
-        String replace = "/";
-        String ori = ",";
-        for (int i = 0; i < imgM.length(); i++) {
-            if (imgM.charAt(i)==ori.charAt(0)){
-                imgM.setCharAt(i,replace.charAt(0));
-            }
-        }
-        String img = imgM.toString();
+    @PutMapping("/addart")
+    public Article addArticle(@RequestBody Article article) throws SQLException{  // cette methode du body et cette generation de l'instance marche seulement pour le PUT
         Article art = new Article();
-        art.setNomArt(nom);
-        art.setImgArt(img);
-        art.setNomConsole(console);
-        art.setDescription(description);
-        art.setQuantArt(quant);
-        art.setPrixArt(Prix);
-        art.setTag(tag);
+        art.setNomArt(article.getNomArt());
+        art.setImgArt(article.getImgArt());
+        art.setNomConsole(article.getNomConsole());
+        art.setDescription(article.getDescription());
+        art.setQuantArt(article.getQuantArt());
+        art.setPrixArt(article.getPrixArt());
+        art.setTag(article.getTag());
         dao.addArticle(art);
+        log.debug("addArticle : {}", article);
         return art;
     }
+
+
+    /****************************************** MODIF ARTICLE ******************************************/
+
+    @DeleteMapping("/deleteart/{nom}")
+    public Object removeArticle(@PathVariable("nom") String nom) throws SQLException {
+        log.debug("removeArticle {}",nom);
+        return dao.removeArticle(nom);
+    }
+
+    @PostMapping("/updateartnom/{nom}/{newnom}")
+    public  Object updateNameArt(@PathVariable("nom") String nom,@PathVariable("newnom") String newnom) throws SQLException{
+        log.debug("updateartnom {}" + nom + " par " + newnom);
+        return dao.updateNameArt(nom,newnom);
+    }
+
+    @PostMapping("/updateartdesc/{nom}/{newDesc}")
+    public  Object updateDesc(@PathVariable("newDesc") String newDesc,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateDesc(newDesc,nom);
+    }
+
+    @PostMapping("/updateartsupp/{nom}/{newSupp}")
+    public  Object updateMdp(@PathVariable("newSupp") String newSupp,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateSupport(newSupp,nom);
+    }
+
+    @PostMapping("/updatearttag/{nom}/{newTag}")
+    public  Object updateTag(@PathVariable("newTag") String newTag,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateTag(newTag,nom);
+    }
+
+    @PostMapping("/updateartprix/{nom}/{newPrix}")
+    public  Object updatePrix(@PathVariable("newPrix") int newPrix,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updatePrix(newPrix,nom);
+    }
+    @PostMapping("/updateartquant/{nom}/{newQuant}")
+    public  Object updateQuant(@PathVariable("newQuant") int newQuant,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateQuant(newQuant,nom);
+    }
+    @PostMapping("/updateartimg/{nom}/{newImg}")
+    public  Object updateImg(@PathVariable("newImg") String newImg,@PathVariable("nom") String nom) throws SQLException{
+        return dao.updateImg(newImg,nom);
+    }
+
+
 }

@@ -74,5 +74,19 @@ public class Article {
     public void setTag(String tag) {
         this.tag = tag;
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "idArticle=" + idArticle +
+                ", nomArt='" + nomArt + '\'' +
+                ", imgArt='" + imgArt + '\'' +
+                ", nomConsole='" + nomConsole + '\'' +
+                ", description='" + description + '\'' +
+                ", quantArt=" + quantArt +
+                ", prixArt=" + prixArt +
+                ", tag='" + tag + '\'' +
+                '}';
+    }
 }
 

@@ -12,7 +12,32 @@ let newMail = document.querySelector('#idmailmodif');
 let newMdp = document.querySelector('#idmdpmodif');
 
 
+let infos = document.querySelector('.infos');
+
 let headers = {}
+let nom = localStorage.getItem('nom')
+let url = `http://localhost:8080/users/${nom}`
+
+fetch(url, {
+    method : "GET",
+    mode: 'cors',
+    headers: headers
+}).then((response) => {
+    return response.json().then((data) => {
+        console.log(data)
+
+        infos.innerHTML =  `<p> Mon nom : ${data.nom}<p> <br />
+        <p> Mon mail : ${data.mail}<p> <br />
+        <p> Mon mdp : ${data.mdp}<p> <br />
+        <p> Mon porte-monnaie : ${data.monnaie}<p> <br />
+
+        `;
+    })
+})
+
+infos.innerHTML = "";
+
+
 
 supp.addEventListener("click",function(){
     let url = `http://localhost:8080/users/removeuser/${nomProfil}`

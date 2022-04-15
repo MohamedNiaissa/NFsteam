@@ -49,7 +49,7 @@ function affichagepanier(){
                                         for (let i = 0; i < produit.length; i++) {
                                             prixtotal += parseFloat(produit[i].innerHTML)
                                         }
-                                        total.innerHTML = "Total : " + prixtotal + "€";
+                                        total.innerHTML = "Total : " + prixtotal + "$";
                                     })
                                 })
                             }
