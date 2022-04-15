@@ -84,7 +84,7 @@ public class UsersController {
     
 
     //-----------------------------------------------------Login User-----------------------------------------------------
-    
+
     @GetMapping("/{nom}")
     public Utilisateur getUserByName(@PathVariable("nom") String nom) throws SQLException {
         return dao.getUserByName(nom);

@@ -90,7 +90,7 @@ document.getElementById("achat").addEventListener('click',function () {
                     console.log(url);
                     let headers = {};
                     fetch(url, {
-                        method: "GET",
+                        method: "DELETE",
                         mode: 'cors',
                         headers: headers
                     }).then((response) => {
