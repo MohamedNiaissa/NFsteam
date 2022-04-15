@@ -33,6 +33,17 @@ public class ArticleDAO {
             }
         }
     }
+    public Object removeArticle(String nom) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "DELETE FROM article WHERE nomArt = ?";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, nom);
+                st.execute();
+            }
+        }
+        return null;
+    }
+
     public List<Article> getArticleByName(String Name) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sqlArt = "SELECT * FROM article";

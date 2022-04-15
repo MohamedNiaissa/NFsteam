@@ -8,14 +8,8 @@ import com.coding.services.ArticleDAO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 import com.coding.models.Article;
@@ -41,8 +35,7 @@ public class ArticleController {
         return dao.getArticleById(id);
     }
     @PutMapping("/addart")
-    public Article addArticle(@RequestBody Article article) throws SQLException{
-        log.debug("addArticle : {}", article);
+    public Article addArticle(@RequestBody Article article) throws SQLException{  // cette methode du body et cette generation de l'instance marche seulement pour le PUT
         Article art = new Article();
         art.setNomArt(article.getNomArt());
         art.setImgArt(article.getImgArt());
@@ -52,7 +45,13 @@ public class ArticleController {
         art.setPrixArt(article.getPrixArt());
         art.setTag(article.getTag());
         dao.addArticle(art);
+        log.debug("addArticle : {}", article);
         return art;
+    }
+    @DeleteMapping("/deleteart/{nom}")
+    public Object removeArticle(@PathVariable("nom") String nom) throws SQLException {
+        /*log.debug("removeArticle {}",nom);*/
+        return dao.removeArticle(nom);
     }
 
 
