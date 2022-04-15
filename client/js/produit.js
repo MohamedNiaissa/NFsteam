@@ -14,7 +14,7 @@ function callAPI() {
             categorie.className = "categorie";
             categorie.innerHTML += '<div class="inproduit" id="div">\n' +
                 '<img class="imgProduit" id="prod" src="' + data[0]['imgArt'] + '">\n' +
-                '<p>' + data[0]['prixArt'] + '€</p>\n' +
+                '<p>' + data[0]['prixArt'] + '$</p>\n' +
                 '<p>' + data[0]['nomArt'] + '</p>\n' +
                 '<p>'+data[0]['description']+'</p>\n' +
                 '<div id="div"><p class="clickable" id="panier">Ajouter au panier</p></div>' +

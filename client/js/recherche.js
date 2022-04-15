@@ -20,7 +20,7 @@ searchGlass.addEventListener('click',function(){
                         '<a href="index.html" id="' + liste[0][i]['tag'] + i + '">' + liste[0][i]['tag'] + '</a>' +
                         '<img class="imgProduct" src="' + liste[0][i]['imgArt'] + '">\n' +
                         '<a href="produit.html" id="' + liste[0][i]['nomArt'] + '">' + liste[0][i]['nomArt'] + '</a>\n' +
-                        '<p>' + liste[0][i]['prixArt'] + '€</p>\n' +
+                        '<p>' + liste[0][i]['prixArt'] + '$</p>\n' +
                         '</div>';
                 } else {
                     if (liste[0][i]['tag'] === localStorage.getItem("recherche")) {
@@ -28,7 +28,7 @@ searchGlass.addEventListener('click',function(){
                             '<a href="index.html" id="' + liste[0][i]['tag'] + i + '">' + liste[0][i]['tag'] + '</a>' +
                             '<img class="imgProduct" src="' + liste[0][i]['imgArt'] + '">\n' +
                             '<a href="produit.html" id="' + liste[0][i]['nomArt'] + '">' + liste[0][i]['nomArt'] + '</a>\n' +
-                            '<p>' + liste[0][i]['prixArt'] + '€</p>\n' +
+                            '<p>' + liste[0][i]['prixArt'] + '$</p>\n' +
                             '</div>';
                     }
                 }
@@ -48,31 +48,5 @@ searchGlass.addEventListener('click',function(){
             }
         }
     }
-    /*let copie = document.querySelectorAll(".Copie");
-    
-    console.log(barreRech.value);
-    console.log(copie)
-
-    for(let i = 0;i<copie.length;i++){
-        console.log(copie[i].id)
-        let copieid = copie[i].id;
-        if(copieid.substr(2).includes(barreRech.value)){
-            console.log("********************")
-            searchlist.push(copie[i])
-            console.log("********************")
-        }
-    }
-
-    console.log(searchlist);
-    for(let i = 0;i < copie.length;i++){
-        copie[i].remove();
-    }
-
-    let categorie = document.querySelector('.categorie')
-    for(let i = 0;i < searchlist.length;i++){
-        categorie.innerHTML += '<div class="Copie div">' + searchlist[i].innerHTML + "</div>"
-    }
-    searchlist = [];*/
-
 })
 

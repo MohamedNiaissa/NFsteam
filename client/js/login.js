@@ -40,7 +40,6 @@ function popup(text,color){
 btn_login.addEventListener('click',function(){
     let nomlog = nom.value;
     let mdplog = mdp.value;
-    console.log(nomlog)
 
     let url = `http://localhost:8080/users/login/${nomlog}/${mdplog}`;
 

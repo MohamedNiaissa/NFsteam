@@ -14,9 +14,9 @@ let newMdp = document.querySelector('#idmdpmodif');
 
 let infos = document.querySelector('.infos');
 
-let headers = {}
-let nom = localStorage.getItem('nom')
-let url = `http://localhost:8080/users/${nom}`
+let headers = {};
+let nom = localStorage.getItem('nom');
+let url = `http://localhost:8080/users/${nom}`;
 
 fetch(url, {
     method : "GET",

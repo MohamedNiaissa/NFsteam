@@ -19,11 +19,14 @@ function filtrateProduct(){
         httpRequest.onload= function(){
             liste.push(JSON.parse(httpRequest.responseText))
 
-
             for(let i = 0;i < divCopie.length; i++){
+
                 let prixArticle = prixCopie[i].innerHTML.substring(0,prixCopie[i].innerHTML.length-1);
-                if(slide.value.length == 3  ){
+                
+                if(slide.value.length == 3 ){
                     divCopie[i].style.display = "flex";
+                }else if(slide.value.length == 1){
+                    divCopie[i].style.display  = "none";
                 }else if(prixArticle > slide.value ){
                     divCopie[i].style.display = "none";
                 }else{

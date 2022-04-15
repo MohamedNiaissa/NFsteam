@@ -15,7 +15,7 @@ function affichagepanier() {
             for (let i = 0; i < data.length; i++) {
                 if (data[i]["nom"] === localStorage.getItem("nom")) {
                     idUser = data[i]["idUser"]
-                    document.getElementById("monnaie").innerHTML = "Vous avez " + data[i]["monnaie"] + "€ "
+                    document.getElementById("monnaie").innerHTML = "Vous avez " + data[i]["monnaie"] + "$ "
                     montant = data[i]["monnaie"];
                     let url = `http://localhost:8080/panier/${idUser}`;
                     let headers = {};
