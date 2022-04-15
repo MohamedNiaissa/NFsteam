@@ -2,10 +2,6 @@ let barreRech = document.querySelector('.recherche');
 let searchGlass = document.querySelector('.search');
 let searchlist = [];
 
-barreRech.addEventListener('click',function(){
-    console.log(barreRech.value);
-})
-
 searchGlass.addEventListener('click',function(){
     let httpRequest = new XMLHttpRequest();
     httpRequest.open('GET','http://localhost:8080/articles');
