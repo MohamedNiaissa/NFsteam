@@ -30,9 +30,11 @@ public class UserDAO {
                     List<Utilisateur> list = new ArrayList<>();
                     while (rs.next()) {
                         Utilisateur u = new Utilisateur();
+                        u.setIdUser(rs.getInt("idUser"));
                         u.setMdp(rs.getString("mdp"));
                         u.setMail(rs.getString("mail"));
                         u.setNom(rs.getString("nom"));
+                        u.setMonnaie(rs.getInt("monnaie"));
                         list.add(u);
                     }
                     return list;
@@ -65,11 +67,11 @@ public class UserDAO {
                 }
             }
         }
-    public Utilisateur getUserById(int id) throws SQLException {
+    public Utilisateur getUserByName(String name) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
-            String sql = "SELECT * FROM utilisateur where id=?;"; // pas de concateneation, pour eviter injection sql
+            String sql = "SELECT * FROM utilisateur where nom=?;"; // pas de concateneation, pour eviter injection sql
             try (PreparedStatement st = co.prepareStatement(sql)) {
-                st.setInt(1, id);
+                st.setString(1, name);
                 try (ResultSet rs = st.executeQuery()) {
                     if (rs.next()) {
                         Utilisateur u = new Utilisateur();
@@ -139,16 +141,20 @@ public class UserDAO {
     }
 
 
-    public Object updateMonnaie(String nameUser, int monnaie) throws SQLException {
+    public boolean updateMonnaie(String nameUser, int monnaie) {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sql = "UPDATE utilisateur SET monnaie = ? WHERE nom = ?";
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setInt(1, monnaie);
                 st.setString(2, nameUser);
                 st.execute();
+                return true;
+            }catch (Error | SQLException error){
+                return false;
             }
+        }catch (Error | SQLException error){
+            return false;
         }
-        return nameUser;
     }
 
 

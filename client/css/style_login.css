@@ -1,11 +1,46 @@
 .login{
-    position:relative;
-    top: 80px;
+ 
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+    width: 300px;
     height: 100%;
     text-align: center;
-    background-color: antiquewhite;
-    color:black;
+   background-color: #7f53ac;
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);;
+    color:rgb(255, 255, 255);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.contentLog{
+    position: relative;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.login > div{
+    margin: 20px;
+}
+
+
+#idnomlog{
+    margin-left: 75px;
+
+}
+
+#idmdplog{
+    margin-left: 20px;
+}
+
+.btn_login{
+    text-decoration: none;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 60px;
+    background-color: #6e72fc;
+    background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
 }

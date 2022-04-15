@@ -1,16 +1,18 @@
 .panier{
     position: relative;
-    top:5vw;
+    top:80px;
     display: flex;
     width: 100vw;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .buy{
     display: flex;
     top: 80px;
     position: relative;
-    width: 90vw;
+    width: 100vw;
     text-align: center;
     justify-content: space-between;
     font-size: xx-large;

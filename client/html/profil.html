@@ -12,21 +12,33 @@
 <body>
     <img class="Fond" src="../img/NFT-01-scaled.png">
 
-    <div class="nav" id="div">
-        <a href="index.html"><img src="../img/Logo.png"></a>
-        <input class="recherche" placeholder="Que souhaitez vous recherchez ?">
+    <div class="nav div">
+        <a href="index.html" id="index"><img class="index" src="../img/Logo.png"></a>
+        <div class="zoneRecherche">
+            <input class="recherche" placeholder="Que souhaitez vous recherchez ?">
+            <img class="search" width = "40px" src="../img/loupe.png" alt="loupe" />
+        </div>
         <div id="div" class="Compte">
-            <a href="Login.html" class="Log LogRegi">
+            <a href="Login.html" class="LogRegi Log">
                 Connexion
+                </p>
             </a>
-            <a href="Register.html" class="Regi LogRegi">
+            <a href="Register.html" class="LogRegi Regi">
                 Inscryption
+                </p>
             </a>
         </div>
     </div>
     <h1 class="profilTitre">Profil de </h1>
 
-    <h3>Modification du profil</h3>
+    <h3 style="text-align: center;">
+        Mes informations
+    </h3>
+
+    <div class="infos" style="text-align: center;"></div>
+
+    
+    <h3 style="text-align: center;">Modification du profil</h3>
 
     <div class="modifContent">
         <div class="modifNom modif">
@@ -63,13 +75,14 @@
             <a href = "#" class="btn_modifmonnaie">Valider</a>
         </div>
     
-        <a href="index.html" class="suppr">Supprimer le compte </a>
+        <a href="#" class="suppr">Supprimer le compte </a>
 
 </div>
 
 </body>
 
 <script src="../js/script.js"></script>
+<script src = "../js/indexResearch.js"> </script>
 <script src="../js/profil.js"></script>
 
 </html>

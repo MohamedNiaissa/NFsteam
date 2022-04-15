@@ -8,21 +8,25 @@
 </head>
 <body>
 <img class="Fond" src="../img/NFT-01-scaled.png">
-    <div class="nav" id="div">
-        <a href="index.html"><img src="../img/Logo.png"></a>
+    <div class="nav div">
+        <a href="index.html" id="index"><img class="index" src="../img/Logo.png"></a>
+        <p id="monnaie"></p>
         <div id="div" class="Compte">
-            <a href="index.html" class="LogRegi">
-                <p class="clickable">
-                Deconnexion
+            <a href="Login.html" class="LogRegi Log">
+                Connexion
+                </p>
+            </a>
+            <a href="Register.html" class="LogRegi Regi">
+                Inscryption
                 </p>
             </a>
         </div>
     </div>
     <div class="buy">
-        <p>Panier</p>
+        <p class="clickable" id="achat">Acheter le contenu du panier</p>
         <p id="Total"></p>
     </div>
-    <div class="panier">
+    <div class="panier" id="pan">
         <div class="Copie" id="div">
             <img class="imgProduct" src="../img/SQ_NSwitchDS_Uno.png">
             <p class="prixproduit">4.99</p>
@@ -37,6 +41,8 @@
         </div>
         <p class="clickable" id="div">Acheter le contenu du panier</p>
     </div>
-    <script src="../js/panier.js"></script>
+<script src="../js/panier.js"></script>
+<script src = "../js/indexResearch.js"> </script>
+<script src = "../js/script.js"> </script>
 </body>
 </html>

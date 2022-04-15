@@ -12,12 +12,37 @@ let newMail = document.querySelector('#idmailmodif');
 let newMdp = document.querySelector('#idmdpmodif');
 
 
-let headers = {}
+let infos = document.querySelector('.infos');
+
+let headers = {};
+let nom = localStorage.getItem('nom');
+let url = `http://localhost:8080/users/${nom}`;
+
+fetch(url, {
+    method : "GET",
+    mode: 'cors',
+    headers: headers
+}).then((response) => {
+    return response.json().then((data) => {
+        console.log(data)
+
+        infos.innerHTML =  `<p> Mon nom : ${data.nom}<p> <br />
+        <p> Mon mail : ${data.mail}<p> <br />
+        <p> Mon mdp : ${data.mdp}<p> <br />
+        <p> Mon porte-monnaie : ${data.monnaie}<p> <br />
+
+        `;
+    })
+})
+
+infos.innerHTML = "";
+
+
 
 supp.addEventListener("click",function(){
     let url = `http://localhost:8080/users/removeuser/${nomProfil}`
     fetch(url, {
-        method : "GET",
+        method : "DELETE",
         mode: 'cors',
         headers: headers
     })
@@ -32,10 +57,11 @@ btn_nommodif.addEventListener('click',function(){
     localStorage.setItem("nom",newnom.value)
     let url = `http://localhost:8080/users/updateusernom/${nomProfil}/${newN}`;
     fetch(url, {
-        method : "GET",
+        method : "POST",
         mode: 'cors',
         headers: headers
     })
+
 })
 
 btn_modifmonnaie.addEventListener('click',function(){
@@ -44,7 +70,7 @@ btn_modifmonnaie.addEventListener('click',function(){
 
     let url = `http://localhost:8080/users/updateusermonnaie/${nomProfil}/${newM}`;
     fetch(url, {
-        method : "GET",
+        method : "POST",
         mode: 'cors',
         headers: headers
     })
@@ -56,7 +82,7 @@ btn_modifmail.addEventListener('click',function(){
 
     let url = `http://localhost:8080/users/updateusermail/${nomProfil}/${newM}`;
     fetch(url, {
-        method : "GET",
+        method : "POST",
         mode: 'cors',
         headers: headers
     })
@@ -68,7 +94,7 @@ btn_modifmdp.addEventListener('click',function(){
 
     let url = `http://localhost:8080/users/updateusermdp/${nomProfil}/${newM}`;
     fetch(url, {
-        method : "GET",
+        method : "POST",
         mode: 'cors',
         headers: headers
     })

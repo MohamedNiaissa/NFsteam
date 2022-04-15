@@ -9,9 +9,9 @@
 </head>
 <body>
 <img class="Fond" src="../img/NFT-01-scaled.png">
-    <div class="nav" id="div">
-        <a href="index.html"><img src="../img/Logo.png"></a>
-        <input class="recherche" placeholder="Que souhaitez vous recherchez ?">
+    <div class="nav div">
+        <a href="index.html" id="index"><img class="index" src="../img/Logo.png"></a>
+    
         <div id="div" class="Compte">
             <a href="Login.html" class="LogRegi">
                 <p class="clickable">
@@ -26,8 +26,11 @@
         </div>
     </div>
 
+    <div class="contentRegister">
+    
+        <h2>Inscription</h2>
+        <div class="register">
 
-    <div class="register">
             <div class="nomClasse">
                 <label for="nomlabel">Nom</label>
                 <input type="text" name="nom" id="idnom" />
@@ -37,7 +40,7 @@
                 <input type="text" name="nom" id="idmail" />
             </div>
             <div class="">
-                <label for="mdplabel">Mot de Passe</label>
+                <label for="mdplabel">Mdp</label>
                 <input type="text" name="mdp" id="idmdp" />
             </div>
 
@@ -46,8 +49,10 @@
                 <input type="number" name="monnaie" id="idmonnaie" />
             </div>
             <a href = "#" class="btn_register">Valider</a>
+        </div>
     </div>
 
 </body>
 <script src="../js/register.js"></script>
+<script src = "../js/indexResearch.js"> </script>
 </html>
