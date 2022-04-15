@@ -8,10 +8,10 @@ import com.coding.services.ArticleDAO;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -33,11 +33,19 @@ public class ArticleController {
         return dao.getArticleByName(nom);
     }
     @GetMapping("/makePan/{id}")
-    public List<Article> getArticleById(@PathVariable("id") String id) throws SQLException {
+    public Article getArticleById(@PathVariable("id") int id) throws SQLException {
         return dao.getArticleById(id);
     }
     @GetMapping("/addart/{nom}/{img}/{console}/{description}/{quant}/{prix}/{tag}")
-    public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") String img,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
+    public Article addArticle(@PathVariable("nom") String nom,@PathVariable("img") StringBuffer imgM,@PathVariable("console") String console,@PathVariable("description") String description,@PathVariable("quant") int quant,@PathVariable("prix") int Prix,@PathVariable("tag") String tag) throws SQLException{
+        String replace = "/";
+        String ori = ",";
+        for (int i = 0; i < imgM.length(); i++) {
+            if (imgM.charAt(i)==ori.charAt(0)){
+                imgM.setCharAt(i,replace.charAt(0));
+            }
+        }
+        String img = imgM.toString();
         Article art = new Article();
         art.setNomArt(nom);
         art.setImgArt(img);
@@ -49,6 +57,4 @@ public class ArticleController {
         dao.addArticle(art);
         return art;
     }
-
-
 }

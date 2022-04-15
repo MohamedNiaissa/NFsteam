@@ -59,14 +59,14 @@ public class ArticleDAO {
             }
         }
     }
-    public List<Article> getArticleById(String ID) throws SQLException {
+    public Article getArticleById(int ID) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
             String sqlArt = "SELECT * FROM article";
             try (Statement st = co.createStatement()) {
                 try (ResultSet rs = st.executeQuery(sqlArt)) {
                     List<Article> list = new ArrayList<>();
                     while (rs.next()) {
-                        if (rs.getString("idArticle").equals(ID))
+                        if (rs.getInt("idArticle") == ID)
                         {
                             Article u = new Article();
                             u.setIdArticle(rs.getInt("idArticle"));
@@ -77,10 +77,10 @@ public class ArticleDAO {
                             u.setQuantArt(rs.getInt("quantArt"));
                             u.setPrixArt(rs.getInt("prixArt"));
                             u.setTag(rs.getString("tag"));
-                            list.add(u);
+                            return u;
                         }
                     }
-                    return list;
+                    return null;
                 }
             }
         }
@@ -96,6 +96,16 @@ public class ArticleDAO {
                 st.setInt(5, art.getQuantArt());
                 st.setFloat(6, art.getPrixArt());
                 st.setString(7, art.getTag());
+                st.execute();
+            }
+        }
+    }
+    public void updateQuant(int id, int quant) throws SQLException{
+        try (Connection co = DriverManager.getConnection("jdbc:postgresql://dumbo.db.elephantsql.com:5432/jtnwwirv", "jtnwwirv", "A--VtkbwHf6vB6VnHWyA7cYGl4_YGfTA")) {
+            String sql = "UPDATE article SET quantart = ? WHERE idArticle = ?;";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, quant);
+                st.setInt(2, id);
                 st.execute();
             }
         }

@@ -40,7 +40,7 @@ body{
     width: 25%;
     border-radius: 16px;
 }
-.Product{
+.Product {
     position: absolute;
     display: flex;
     align-items: center;

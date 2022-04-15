@@ -18,6 +18,7 @@ function callAPI(){
     httpRequest.send();
     httpRequest.onload= function(){
         liste.push(JSON.parse(httpRequest.responseText))
+        document.getElementById("numberart").innerHTML = "Nous proposons actuellement " + liste[0].length + " jeux";
         let catalogue = document.getElementById("Product");
         let categorie = document.createElement("div");
         categorie.className = "categorie";

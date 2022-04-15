@@ -19,9 +19,11 @@ btn_login.addEventListener('click',function(){
                 localStorage.setItem("nom",data[0].nom);
                 localStorage.setItem("mail",data[0].mail);
                 localStorage.setItem("monnaie",data[0].monnaie);
+                if (localStorage.getItem("nom") === data[0].nom){
+                    document.location.href="../html/index.html";
+                }
             }catch(error){
             }
-            document.location.href="../html/index.html";
         })
     });
 })

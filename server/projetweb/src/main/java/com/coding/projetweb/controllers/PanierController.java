@@ -42,11 +42,19 @@ public class PanierController {
     @GetMapping("/retreats/{nomUser}")
     public boolean removeCommands(@PathVariable("nomUser") String nomUser) throws SQLException{
         List<Utilisateur> list = new ArrayList<Utilisateur>();
+        List<Panier> listpan = new ArrayList<Panier>();
+        Article art = new Article();
         list = daou.getUsers();
         int idUser;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getNom().equals(nomUser)){
                 idUser = list.get(i).getIdUser();
+                listpan = dao.getSpecificPanier(idUser);
+                for (int j = 0; j < listpan.size(); j++) {
+                    art = daoa.getArticleById(listpan.get(j).getIdArticle());
+                    int newstock = art.getQuantArt()-1;
+                    art.setQuantArt(newstock);
+                }
                 return dao.removeCommands(idUser);
             }
         }
